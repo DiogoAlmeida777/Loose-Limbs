@@ -1,5 +1,71 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &14784127219131989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6477732035601852284}
+  - component: {fileID: 5795020678250329379}
+  - component: {fileID: 595553291848941059}
+  m_Layer: 0
+  m_Name: CeillingCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6477732035601852284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14784127219131989}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.737, z: 0.068}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2070781723040340224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5795020678250329379
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14784127219131989}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.12
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &595553291848941059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14784127219131989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b96ce6d99bdc994eb7aac6a7651b884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CeillingSensor
 --- !u!1 &52833573417996143
 GameObject:
   m_ObjectHideFlags: 0
@@ -5234,8 +5300,10 @@ GameObject:
   - component: {fileID: 2070781723040340224}
   - component: {fileID: 4898738322394777639}
   - component: {fileID: 9119685787540698207}
-  - component: {fileID: 2069972491822039828}
-  - component: {fileID: 747170306663909175}
+  - component: {fileID: 593272146282407447}
+  - component: {fileID: 8941934250656952148}
+  - component: {fileID: 8449110346009098402}
+  - component: {fileID: 7979845060801932123}
   - component: {fileID: 658873709224275009}
   m_Layer: 0
   m_Name: MainCharacter
@@ -5281,6 +5349,7 @@ Transform:
   - {fileID: 4882855437135040898}
   - {fileID: 7175841738551045705}
   - {fileID: 4894356199050189092}
+  - {fileID: 6477732035601852284}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4898738322394777639
@@ -5323,14 +5392,14 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.89
-  m_Radius: 0.5
+  m_Height: 1.85
+  m_Radius: 0.38
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2069972491822039828
+  m_Center: {x: 0, y: 0.92, z: 0}
+--- !u!114 &593272146282407447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5339,11 +5408,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7497189721635890914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6c7c8e77b3553a408a3ec19e0b60ded, type: 3}
+  m_Script: {fileID: 11500000, guid: 0942d27eb01cb2d4bbc52f79215aab9e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoveCharacter
-  speed: 5
---- !u!114 &747170306663909175
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  stats: {fileID: 8941934250656952148}
+--- !u!114 &8941934250656952148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5352,10 +5421,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 7497189721635890914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89f27277e21c9e34bba3823c9bcc49e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f1684ff96351f34089a9db652666f9f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TurnCharacter
+  m_EditorClassIdentifier: Assembly-CSharp::CharStats
+  moveSpeed: 5
+  sprintSpeed: 10
+  moveBuff: 1
+  minSpeed: 1
   turnSpeed: 180
+  jumpForce: 10
+  gravityAcceleration: -9.8
+  gravityMultiplier: 1
+  numberOfLegs: 2
+--- !u!114 &8449110346009098402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497189721635890914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcf2ea01ce23d541a7892341b607f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeltaTransform
+--- !u!114 &7979845060801932123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497189721635890914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c663f8e4d83874fa49d3d2c3e5b51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimatorController
+  anim: {fileID: 4898738322394777639}
+  dt: {fileID: 8449110346009098402}
+  playerController: {fileID: 593272146282407447}
+  animParameter: FwdSpeed
+  animParameter2: SideSpeed
 --- !u!114 &658873709224275009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5368,7 +5474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: ae9fb4dbc4f21f64ba3cffbd99a4e4bf, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -5382,8 +5488,8 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &7665598485730301996

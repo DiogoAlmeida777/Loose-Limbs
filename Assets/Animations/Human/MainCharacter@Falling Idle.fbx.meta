@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 83fb1ef8b65080447aba65f2e7d39099
+guid: 3c201849c8a59034f819b0973b593b48
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Injured Walk Backwards
+      name: Falling Idle
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 62
+      lastFrame: 21
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 83fb1ef8b65080447aba65f2e7d39099
+guid: a042af8c0605a424fa555395d03c5421
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,21 +31,21 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Injured Walk Backwards
+      name: Falling Flat Impact
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 62
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
