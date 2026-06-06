@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e783db07c60223418b1bf81b5ca6dbd
+guid: 82fd9a914299b874da408321712f4751
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,21 +31,21 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Jumping
+      name: Pistol Idle
       takeName: mixamo.com
       internalID: -203655887218126122
-      firstFrame: 6
-      lastFrame: 30
+      firstFrame: 0
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
-      loopBlendPositionY: 1
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1

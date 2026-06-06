@@ -18,6 +18,7 @@ public class AnimatorController : MonoBehaviour
     protected int speedHash2;
 
 
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -37,7 +38,8 @@ public class AnimatorController : MonoBehaviour
     {
         anim.SetFloat(animParameter, dt.fwdSpeed());
         anim.SetFloat(animParameter2, dt.sideSpeed());
-        anim.SetFloat("Speed", dt.movSpeed().magnitude);
+        anim.SetFloat("Speed", dt.xzSpeed());
+        anim.SetFloat("ySpeed", dt.ySpeed());
         anim.SetFloat("Rotation", dt.rotSpeed().y);
         anim.SetBool("onGround",playerController.isGrounded());
         
@@ -46,8 +48,7 @@ public class AnimatorController : MonoBehaviour
 
     void OnJump()
     {
-
-        //anim.SetTrigger("Jump", value.isPressed);
         anim.SetTrigger("Jump");
+        
     }
 }

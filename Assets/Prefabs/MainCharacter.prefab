@@ -5392,7 +5392,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.85
+  m_Height: 1.84
   m_Radius: 0.38
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -5429,7 +5429,7 @@ MonoBehaviour:
   moveBuff: 1
   minSpeed: 1
   turnSpeed: 180
-  jumpForce: 10
+  jumpForce: 8
   gravityAcceleration: -9.8
   gravityMultiplier: 1
   numberOfLegs: 2

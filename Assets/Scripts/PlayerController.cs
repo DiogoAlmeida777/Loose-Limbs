@@ -6,20 +6,26 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-
-    private CharacterController characterController;
     [SerializeField] private CharStats stats;
+    private CharacterController characterController;
+    private CeillingSensor ceillingSensor;
+
 
     private Vector3 deltaPosition = Vector3.zero;
+    private float currentSpeed = 0;
 
 
 
-    private float currentSpeed;
+
+
+
+
+
 
     private static float minGravitySpeed = -1f;
     private float yVelocity = minGravitySpeed;
 
-    private CeillingSensor ceillingSensor;
+    
 
 
 
@@ -30,6 +36,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"{typeof(CharacterController).Name} not found at {gameObject.name}!");
 
         ceillingSensor = GetComponentInChildren<CeillingSensor>();
+        
+    }
+
+    private void OnEnable()
+    {
         ceillingSensor.ceillingCollision += OnCeillingCollision;
     }
 
