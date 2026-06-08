@@ -1,112 +1,107 @@
+using System;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharStats))]
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CharStats stats;
+    private PlayerInputHandler inputHandler;
     private CharacterController characterController;
-    private CeillingSensor ceillingSensor;
 
+    #region Ceiling Collision Check
+    private CeilingSensor ceilingSensor;
+    public event Action hitCeiling;
+    #endregion
 
-    private Vector3 deltaPosition = Vector3.zero;
-    private float currentSpeed = 0;
+    #region XZ Movement
+    [SerializeField] private float minMoveSpeed = 1.0f;
+    #endregion
 
-
-
-
-
-
-
-
-
+    #region Vertical Movement 
+    [SerializeField] private float gravityAcceleration = -9.81f;
+    [SerializeField] private float gravityMultiplier = 1.0f;
     private static float minGravitySpeed = -1f;
     private float yVelocity = minGravitySpeed;
+    #endregion
 
-    
-
-
+    #region Look Direction
+    [SerializeField] private Transform cameraTransform; 
+    private Vector3 lookDirection;
+    [SerializeField] private float turnSpeed = 180f;
+    #endregion
 
     void Awake()
     {
+        inputHandler = GetComponent<PlayerInputHandler>();
         characterController = GetComponent<CharacterController>();
         if (!characterController)
             Debug.Log($"{typeof(CharacterController).Name} not found at {gameObject.name}!");
-
-        ceillingSensor = GetComponentInChildren<CeillingSensor>();
-        
+        ceilingSensor = GetComponentInChildren<CeilingSensor>();
     }
 
     private void OnEnable()
     {
-        ceillingSensor.ceillingCollision += OnCeillingCollision;
+        ceilingSensor.ceilingCollision += OnceilingCollision;
     }
 
     private void OnDisable()
     {
-        ceillingSensor.ceillingCollision -= OnCeillingCollision;
+        ceilingSensor.ceilingCollision -= OnceilingCollision;
     }
 
     // Update is called once per frame
     void Update()
     {
-        applyGravity();
-        applyMovement();
+        if (inputHandler.Jumped && IsGrounded())
+            yVelocity = stats.JumpForce;
+
+        Gravity();
+        Move();
+        FreeLookTurn();
     }
 
-    private void applyMovement()
+    private void Move()
     {
+        Vector2 inputVector = inputHandler.MoveInput;
+        Vector3 deltaPosition = new Vector3(inputVector.x, 0, inputVector.y);
         Vector3 XZMotion = transform.TransformDirection(deltaPosition);
-        XZMotion = XZMotion * stats.MoveSpeed * Time.deltaTime;
-
+        XZMotion *= stats.MoveSpeed * Time.deltaTime;
         Vector3 YMotion = Vector3.up * yVelocity * Time.deltaTime;
-
         Vector3 MoveVector = XZMotion + YMotion;
-
         characterController.Move(MoveVector);
     }
 
-
-    void OnMove(InputValue value)
+    // Function to use in case of free look cinemachine camera.
+    private void FreeLookTurn()
     {
-        Vector2 input = value.Get<Vector2>();
-        deltaPosition = new Vector3(input.x, 0, input.y);
+        Vector3 lookDirection = cameraTransform.forward;
+        lookDirection.y = 0;
+
+        Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,turnSpeed *Time.deltaTime);
     }
 
-    void OnLook(InputValue value)
+    private void Gravity()
     {
-        Vector2 input = value.Get<Vector2>();
-        transform.Rotate(Vector3.up, input.x * stats.TurnSpeed * Time.deltaTime);
-    }
-
-    void OnJump()
-    {
-        if (!isGrounded()) return;
-
-        yVelocity = stats.JumpForce;
-    }
-
-    private void applyGravity()
-    {
-        if (isGrounded() && yVelocity < 0.0f)
+        if (IsGrounded() && yVelocity < 0.0f)
         {
             yVelocity = minGravitySpeed;
         }
         else
         {
-            yVelocity += stats.GravityAcc * stats.GravityMultiplier * Time.deltaTime;
+            yVelocity += gravityAcceleration * gravityMultiplier * Time.deltaTime;
         }
     }
 
-    private void OnCeillingCollision()
+    private void OnceilingCollision()
     {
         yVelocity = minGravitySpeed;
+        hitCeiling?.Invoke();
     } 
 
-
-    public bool isGrounded() => characterController.isGrounded;
+    public bool IsGrounded() => characterController.isGrounded;
 
 
 }

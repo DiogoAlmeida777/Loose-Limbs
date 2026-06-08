@@ -6,18 +6,46 @@ public class AnimatorController : MonoBehaviour
 {
     public Animator anim;
 
+    #region Dependencies
     public DeltaTransform dt;
-
     public PlayerController playerController;
+    public PlayerInputHandler inputHandler;
+    #endregion 
 
-    public string animParameter;
+    #region Animation Parameters Strings
+    public string fwdSpeedString = "fwdSpeed";
+    public string sideSpeedString = "sideSpeed";
+    public string rotationString = "rotation";
+    public string isIdleString = "isIdle";
+    public string isSprintingString = "isSprinting";
+    public string onGroundString = "onGround";
+    public string jumpString = "jump";
+    public string isDeadString = "isDead";
+    public string hitCeilingString = "hitCeiling";
+    #endregion
 
-    public string animParameter2;
+    #region Animation Parameters Hashes
+    public int fwdSpeedHash { get; private set; }
+    public int sideSpeedHash { get; private set; }
+    public int rotationHash { get; private set; }
+    public int isIdleHash { get; private set; }
+    public int isSprintingHash { get; private set; }
+    public int onGroundHash { get; private set; }
+    public int jumpHash { get; private set; }
+    public int isDeadHash { get; private set; }
+    public int hitCeilingHash { get; private set; }
+    #endregion
 
-    protected int speedHash;
-    protected int speedHash2;
+    #region State Machine
+    public MovementState currentState { get; private set; }
 
+    public IdleState idleState;
+    public RunningState walkState;
+    public SprintingState sprintingState;
+    public JumpingState jumpingState;
+    #endregion
 
+    [SerializeField] private float BlendSpeed = 3f;
 
     private void Awake()
     {
@@ -29,26 +57,60 @@ public class AnimatorController : MonoBehaviour
         if (!dt)
             Debug.Log("Delta Transform not found!");
 
-        speedHash = Animator.StringToHash(animParameter);
-        speedHash2 = Animator.StringToHash(animParameter2);
+        playerController = GetComponent<PlayerController>();
+        inputHandler = GetComponent<PlayerInputHandler>();
+
+        fwdSpeedHash = Animator.StringToHash(fwdSpeedString);
+        sideSpeedHash = Animator.StringToHash(sideSpeedString);
+        rotationHash = Animator.StringToHash(rotationString);
+        isIdleHash = Animator.StringToHash(isIdleString);
+        isSprintingHash = Animator.StringToHash(isSprintingString);
+        onGroundHash = Animator.StringToHash(onGroundString);
+        jumpHash = Animator.StringToHash(jumpString);
+        isDeadHash = Animator.StringToHash(isDeadString);
+        hitCeilingHash = Animator.StringToHash(hitCeilingString);
+    }
+
+    private void OnEnable()
+    {
+        playerController.hitCeiling += OnHitCeiling;
+        initializeStatemachine();
+    }
+
+    private void OnDisable()
+    {
+        playerController.hitCeiling -= OnHitCeiling;
     }
 
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat(animParameter, dt.fwdSpeed());
-        anim.SetFloat(animParameter2, dt.sideSpeed());
-        anim.SetFloat("Speed", dt.xzSpeed());
-        anim.SetFloat("ySpeed", dt.ySpeed());
-        anim.SetFloat("Rotation", dt.rotSpeed().y);
-        anim.SetBool("onGround",playerController.isGrounded());
+        anim.SetFloat(fwdSpeedHash, dt.fwdSpeed());
+        anim.SetFloat(sideSpeedHash, dt.sideSpeed());
+        //anim.SetFloat(rotationHash, dt.rotSpeed().y);
         
+        currentState.UpdateState(this);
+
+        anim.SetBool(onGroundHash, playerController.IsGrounded());
+        //Debug.Log(currentState.ToString());
     }
 
-
-    void OnJump()
+    private void initializeStatemachine()
     {
-        anim.SetTrigger("Jump");
-        
+        idleState = new IdleState();
+        walkState = new RunningState();
+        sprintingState = new SprintingState();
+        jumpingState = new JumpingState();
+        changeState(idleState);
+    }
+
+    public void changeState(MovementState state) { 
+        currentState = state;
+        currentState.EnterState(this);
+    }
+
+    private void OnHitCeiling()
+    {
+        anim.SetTrigger(hitCeilingHash);
     }
 }

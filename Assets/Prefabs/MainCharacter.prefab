@@ -5302,12 +5302,13 @@ GameObject:
   - component: {fileID: 9119685787540698207}
   - component: {fileID: 593272146282407447}
   - component: {fileID: 8941934250656952148}
+  - component: {fileID: 3486225763191036187}
   - component: {fileID: 8449110346009098402}
   - component: {fileID: 7979845060801932123}
   - component: {fileID: 658873709224275009}
   m_Layer: 0
   m_Name: MainCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5412,6 +5413,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   stats: {fileID: 8941934250656952148}
+  minMoveSpeed: 1
+  gravityAcceleration: -9.81
+  gravityMultiplier: 1
+  cameraTransform: {fileID: 0}
+  turnSpeed: 180
 --- !u!114 &8941934250656952148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5427,12 +5433,20 @@ MonoBehaviour:
   moveSpeed: 5
   sprintSpeed: 10
   moveBuff: 1
-  minSpeed: 1
-  turnSpeed: 180
   jumpForce: 8
-  gravityAcceleration: -9.8
-  gravityMultiplier: 1
   numberOfLegs: 2
+--- !u!114 &3486225763191036187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497189721635890914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa1e6c847c3d984d9108134dfc60411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
 --- !u!114 &8449110346009098402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5460,8 +5474,17 @@ MonoBehaviour:
   anim: {fileID: 4898738322394777639}
   dt: {fileID: 8449110346009098402}
   playerController: {fileID: 593272146282407447}
-  animParameter: FwdSpeed
-  animParameter2: SideSpeed
+  inputHandler: {fileID: 3486225763191036187}
+  fwdSpeedString: fwdSpeed
+  sideSpeedString: sideSpeed
+  rotationString: rotation
+  isIdleString: isIdle
+  isSprintingString: isSprinting
+  onGroundString: onGround
+  jumpString: jump
+  isDeadString: isDead
+  hitCeilingString: hitCeiling
+  BlendSpeed: 0
 --- !u!114 &658873709224275009
 MonoBehaviour:
   m_ObjectHideFlags: 0
