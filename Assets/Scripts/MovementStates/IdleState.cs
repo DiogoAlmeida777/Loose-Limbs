@@ -9,7 +9,7 @@ public class IdleState : MovementState
 
     public override void UpdateState(AnimatorController animatorController)
     {
-        if (animatorController.dt.movSpeed().sqrMagnitude > 0.1f)
+        if (animatorController.moveInput != Vector2.zero)
         {
             ExitState(animatorController, animatorController.walkState);
         }

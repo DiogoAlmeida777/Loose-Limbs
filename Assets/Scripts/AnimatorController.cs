@@ -7,7 +7,6 @@ public class AnimatorController : MonoBehaviour
     public Animator anim;
 
     #region Dependencies
-    public DeltaTransform dt;
     public PlayerController playerController;
     public PlayerInputHandler inputHandler;
     #endregion 
@@ -45,17 +44,14 @@ public class AnimatorController : MonoBehaviour
     public JumpingState jumpingState;
     #endregion
 
-    [SerializeField] private float BlendSpeed = 3f;
+    public Vector2 moveInput {  get; private set; }
+    [SerializeField] private float damping = .2f;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         if (!anim)
             Debug.Log("Animator not found!");
-
-        dt = GetComponent<DeltaTransform>();
-        if (!dt)
-            Debug.Log("Delta Transform not found!");
 
         playerController = GetComponent<PlayerController>();
         inputHandler = GetComponent<PlayerInputHandler>();
@@ -69,6 +65,7 @@ public class AnimatorController : MonoBehaviour
         jumpHash = Animator.StringToHash(jumpString);
         isDeadHash = Animator.StringToHash(isDeadString);
         hitCeilingHash = Animator.StringToHash(hitCeilingString);
+
     }
 
     private void OnEnable()
@@ -85,14 +82,14 @@ public class AnimatorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat(fwdSpeedHash, dt.fwdSpeed());
-        anim.SetFloat(sideSpeedHash, dt.sideSpeed());
-        //anim.SetFloat(rotationHash, dt.rotSpeed().y);
+        moveInput = inputHandler.MoveInput;
+        anim.SetFloat(fwdSpeedHash, moveInput.y,damping,Time.deltaTime);
+        anim.SetFloat(sideSpeedHash,moveInput.x,damping, Time.deltaTime);
+        anim.SetFloat(rotationHash, inputHandler.LookInput.x);
         
         currentState.UpdateState(this);
 
         anim.SetBool(onGroundHash, playerController.IsGrounded());
-        //Debug.Log(currentState.ToString());
     }
 
     private void initializeStatemachine()

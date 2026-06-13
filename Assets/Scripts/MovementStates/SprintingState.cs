@@ -17,7 +17,7 @@ public class SprintingState : MovementState
         {
             ExitState(animatorController, animatorController.jumpingState);
         }
-        else if (animatorController.dt.movSpeed().sqrMagnitude < 0.1f)
+        else if (animatorController.moveInput == Vector2.zero)
         {
             ExitState(animatorController, animatorController.idleState);
         }

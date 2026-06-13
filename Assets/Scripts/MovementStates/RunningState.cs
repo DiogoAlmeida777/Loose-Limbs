@@ -14,7 +14,7 @@ public class RunningState : MovementState
             animatorController.changeState(animatorController.sprintingState);
         }
 
-        if (animatorController.dt.movSpeed().sqrMagnitude < 0.1f)
+        if (animatorController.moveInput == Vector2.zero)
         {
             animatorController.changeState(animatorController.idleState);
         }

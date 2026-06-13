@@ -28,8 +28,18 @@ public class PlayerController : MonoBehaviour
 
     #region Look Direction
     [SerializeField] private Transform cameraTransform; 
-    private Vector3 lookDirection;
+    //private Vector3 lookDirection;
+
+    private float yaw;
+    private float pitch;
+    private float currentYaw;
+    private float currentPitch;
+    [SerializeField] private float minPitch = -60f;
+    [SerializeField] private float maxPitch = 60f;
     [SerializeField] private float turnSpeed = 180f;
+    [SerializeField] private float horizontalSensitivity = 0.5f;
+    [SerializeField] private float verticalSensitivity = 0.5f;
+    [SerializeField] private Transform cameraTarget;
     #endregion
 
     void Awake()
@@ -59,7 +69,11 @@ public class PlayerController : MonoBehaviour
 
         Gravity();
         Move();
-        FreeLookTurn();
+    }
+
+    private void LateUpdate()
+    {
+        LookAndTurn();
     }
 
     private void Move()
@@ -81,6 +95,21 @@ public class PlayerController : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,turnSpeed *Time.deltaTime);
+    }
+
+    private void LookAndTurn()
+    {
+        Vector2 lookInput = inputHandler.LookInput;
+
+        yaw += lookInput.x * horizontalSensitivity;
+        pitch -= lookInput.y * verticalSensitivity;
+        pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+
+        currentYaw = Mathf.Lerp(currentYaw, yaw, turnSpeed * Time.deltaTime);
+        currentPitch = Mathf.Lerp(currentPitch,pitch,turnSpeed * Time.deltaTime);
+
+        transform.rotation = Quaternion.Euler(0f, currentYaw, 0f);
+        cameraTarget.localRotation = Quaternion.Euler(currentPitch, 0f, 0f);
     }
 
     private void Gravity()

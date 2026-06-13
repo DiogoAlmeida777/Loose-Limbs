@@ -28,7 +28,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ScifiSoldier
-    second: {fileID: 2100000, guid: d13bf8775b959c847a35ba4cfe63174d, type: 2}
+    second: {fileID: 2100000, guid: 3553b8de801f5e9488fde9d03584a34d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -43,17 +43,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: scavenger
-    second: {fileID: 2100000, guid: 7b33a25cb2d059046913cf7657778f41, type: 2}
+    second: {fileID: 2100000, guid: b9ad63149268fcc4abd36435c0758017, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: uv_1.001
-    second: {fileID: 2100000, guid: f1b6384d421a0034c8857a0cfa39a1f5, type: 2}
+    second: {fileID: 2100000, guid: d28a4eedad2b73b4d80756f21e2677d3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: uv_2.001
-    second: {fileID: 2100000, guid: d86ba5fd83a303e44baf7e13c828f0e1, type: 2}
+    second: {fileID: 2100000, guid: e1efdadb20b8fc24fb96b543fc7db3c6, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
