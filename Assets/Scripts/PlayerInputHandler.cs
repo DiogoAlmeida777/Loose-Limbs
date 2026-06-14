@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,9 @@ public class PlayerInputHandler : MonoBehaviour, InputSystem.IPlayerActions
     public bool IsSprinting { get; private set; } = false;
     public Vector2 MoveInput {  get; private set; }
     public Vector2 LookInput { get; private set; }
+
+    public event Action LeftAttack;
+    public event Action RightAttack;
 
 
     private void Awake()
@@ -46,6 +50,7 @@ public class PlayerInputHandler : MonoBehaviour, InputSystem.IPlayerActions
         }
     }
 
+
     public void OnSprint(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -58,7 +63,6 @@ public class PlayerInputHandler : MonoBehaviour, InputSystem.IPlayerActions
         }
     }
 
-    // may be usefull if we use Cinemachine Third Person Camera instead of FreeLook.
     public void OnLook(InputAction.CallbackContext context)
     {
         LookInput = context.ReadValue<Vector2>();
@@ -66,12 +70,15 @@ public class PlayerInputHandler : MonoBehaviour, InputSystem.IPlayerActions
 
     public void OnLeftArmAttack(InputAction.CallbackContext context)
     {
-        //TODO: implement left arm attack
+        if (context.started)
+            LeftAttack?.Invoke();
     }
+
 
     public void OnRightArmAttack(InputAction.CallbackContext context)
     {
-        //TODO: implement right arm attack
+        if (context.started)
+            RightAttack?.Invoke();
     }
 
     public void OnInteract(InputAction.CallbackContext context)
