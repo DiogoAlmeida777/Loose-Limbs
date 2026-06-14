@@ -228,7 +228,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""id"": ""d3d71a17-399b-4b98-9067-d56bad919e83"",
                     ""path"": ""<Pointer>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=0.5,y=0.5)"",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Look"",
                     ""isComposite"": false,

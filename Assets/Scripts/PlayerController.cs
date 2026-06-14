@@ -27,19 +27,19 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Look Direction
-    [SerializeField] private Transform cameraTransform; 
+    //[SerializeField] private Transform cameraTransform; 
     //private Vector3 lookDirection;
 
-    private float yaw;
-    private float pitch;
-    private float currentYaw;
-    private float currentPitch;
-    [SerializeField] private float minPitch = -60f;
-    [SerializeField] private float maxPitch = 60f;
-    [SerializeField] private float turnSpeed = 180f;
-    [SerializeField] private float horizontalSensitivity = 0.5f;
-    [SerializeField] private float verticalSensitivity = 0.5f;
-    [SerializeField] private Transform cameraTarget;
+    //private float yaw;
+    //private float pitch;
+    //private float currentYaw;
+    //private float currentPitch;
+    //[SerializeField] private float minPitch = -60f;
+    //[SerializeField] private float maxPitch = 60f;
+    //[SerializeField] private float turnSpeed = 180f;
+    //[SerializeField] private float horizontalSensitivity = 0.5f;
+    //[SerializeField] private float verticalSensitivity = 0.5f;
+    //[SerializeField] private Transform cameraTarget;
     #endregion
 
     void Awake()
@@ -71,10 +71,6 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    private void LateUpdate()
-    {
-        LookAndTurn();
-    }
 
     private void Move()
     {
@@ -88,6 +84,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Function to use in case of free look cinemachine camera.
+    /*
     private void FreeLookTurn()
     {
         Vector3 lookDirection = cameraTransform.forward;
@@ -95,8 +92,8 @@ public class PlayerController : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,turnSpeed *Time.deltaTime);
-    }
-
+    }*/
+    /*
     private void LookAndTurn()
     {
         Vector2 lookInput = inputHandler.LookInput;
@@ -110,7 +107,7 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, currentYaw, 0f);
         cameraTarget.localRotation = Quaternion.Euler(currentPitch, 0f, 0f);
-    }
+    }*/
 
     private void Gravity()
     {
