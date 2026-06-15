@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af58b92052344542a056156afa4a769, type: 3}
+  m_Name: L_Arm_Alien
+  m_EditorClassIdentifier: Assembly-CSharp::ArmStats
+  bodySide: 0
+  type: 1
+  health: 75
+  meleeDamage: 15
+  attackCooldown: 0
+  canGrab: 1
+  attackAnim: {fileID: -203655887218126122, guid: f67a3cf654077ed42b65b62b81ddac98, type: 3}

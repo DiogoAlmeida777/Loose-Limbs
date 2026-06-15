@@ -11,8 +11,15 @@ public class PlayerInputHandler : MonoBehaviour, InputSystem.IPlayerActions
     public Vector2 MoveInput {  get; private set; }
     public Vector2 LookInput { get; private set; }
 
-    public event Action LeftAttack;
-    public event Action RightAttack;
+    public bool IsLeftAttacking;
+
+    public bool IsRightAttacking;
+
+    public bool Interacted;
+
+    //public event Action LeftAttack;
+    //public event Action RightAttack;
+    //public event Action Interacted;
 
 
     private void Awake()
@@ -71,19 +78,29 @@ public class PlayerInputHandler : MonoBehaviour, InputSystem.IPlayerActions
     public void OnLeftArmAttack(InputAction.CallbackContext context)
     {
         if (context.started)
-            LeftAttack?.Invoke();
+            IsLeftAttacking = true;
+
+        if (context.canceled)
+            IsLeftAttacking = false;
     }
 
 
     public void OnRightArmAttack(InputAction.CallbackContext context)
     {
         if (context.started)
-            RightAttack?.Invoke();
+            IsRightAttacking = true;
+
+        if (context.canceled)
+            IsRightAttacking = false;
     }
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        //TODO: implement interact
+        if (context.started)
+            Interacted = true;
+
+        if (context.canceled)
+            Interacted = false;
     }
 
 

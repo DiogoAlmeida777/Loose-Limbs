@@ -17,6 +17,11 @@ public class PlayerAim : MonoBehaviour
     [SerializeField] private Transform aimPosition;
     [SerializeField] private LayerMask aimLayerMask;
 
+    [SerializeField] private float interactDistance = 4000f;
+    private IInteractable currentInteractable;
+
+
+
     void Awake()
     {
         inputHandler = GetComponent<PlayerInputHandler>();
@@ -25,23 +30,32 @@ public class PlayerAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateAimPosition();
+        Vector2 screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
+        Ray ray = Camera.main.ScreenPointToRay(screenCenter);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimLayerMask))
+        {
+            aimPosition.position = Vector3.Lerp(aimPosition.position, hit.point, 20f * Time.deltaTime);
+
+            if(hit.distance <= interactDistance)
+            {
+                currentInteractable = hit.collider.GetComponentInParent<IInteractable>();
+            }
+        }
+
+        if (currentInteractable != null)
+            Debug.Log(currentInteractable.ToString());
+
+        if (inputHandler.Interacted && currentInteractable != null)
+        {
+            currentInteractable.Interact(gameObject);
+        }
+
         turnPlayer();
     }
 
     private void LateUpdate()
     {
         rotateCamera();
-    }
-
-    private void updateAimPosition()
-    {
-        Vector2 screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
-        Ray ray = Camera.main.ScreenPointToRay(screenCenter);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, aimLayerMask))
-        {
-            aimPosition.position = Vector3.Lerp(aimPosition.position, hit.point, 20f * Time.deltaTime);
-        }
     }
 
     private void rotateCamera()
