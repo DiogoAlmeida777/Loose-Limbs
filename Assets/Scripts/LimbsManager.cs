@@ -15,22 +15,20 @@ public class LimbsManager : MonoBehaviour
 
     [SerializeField] private LegStats leftLegStats;
     [SerializeField] private LegStats rightLegStats;
-    [SerializeField] private ArmStats leftArmStats;
-    [SerializeField] private ArmStats rightArmStats;
 
-    private int numberOfLegs;
+    public int numberOfLegs { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-        
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void loseLimb()
@@ -50,7 +48,6 @@ public class LimbsManager : MonoBehaviour
             int index = (int)arm.type;
             currentLeftArm = L_Arms[index];
             currentLeftArm.SetActive(true);
-            leftArmStats = arm;
         }
         else if (arm.bodySide == BodySide.Right)
         {
@@ -61,7 +58,6 @@ public class LimbsManager : MonoBehaviour
             int index = (int)arm.type;
             currentRightArm = R_Arms[index];
             currentRightArm.SetActive(true);
-            rightArmStats = arm;
         }
 
     }
@@ -100,18 +96,31 @@ public class LimbsManager : MonoBehaviour
 
     public void getLimb(LimbStats limb)
     {
-        if(limb is LegStats leg)
+        if (limb is LegStats leg)
             getLeg(leg);
 
-        if(limb is ArmStats arm)
+        if (limb is ArmStats arm)
             getArm(arm);
     }
 
 
+    public float MoveSpeed => 
+        (leftLegStats != null? leftLegStats.moveSpeed : 0) + 
+        (rightLegStats != null? rightLegStats.moveSpeed : 0);
 
+    public float SprintBuff =>
+        1 +
+        (leftLegStats != null ? leftLegStats.sprintMultiplier : 0) +
+        (rightLegStats != null ? rightLegStats.sprintMultiplier : 0);
 
+    public float JumpForce =>
+        (leftLegStats != null ? leftLegStats.jumpForce : 0) +
+        (rightLegStats != null ? rightLegStats.jumpForce : 0);
 
-    
+    public float Stamina =>
+        (leftLegStats != null ? leftLegStats.stamina : 0) +
+        (rightLegStats != null ? rightLegStats.stamina : 0);
+
 
     
 }
