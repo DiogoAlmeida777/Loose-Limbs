@@ -16,6 +16,7 @@ MonoBehaviour:
   type: 3
   health: 25
   meleeDamage: 50
-  attackCooldown: 0
+  attackCooldown: 5
   canGrab: 0
-  attackAnim: {fileID: -203655887218126122, guid: 02ed316f24090224d9cedceadebbf60e, type: 3}
+  attackAnimStateName: Slash
+  animLayerName: LeftArm

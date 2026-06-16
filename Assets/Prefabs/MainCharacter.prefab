@@ -108,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7315495757168443735}
   - component: {fileID: 3580858946003442404}
+  - component: {fileID: 5351226671501655178}
   m_Layer: 6
   m_Name: Human_R_Arm
   m_TagString: Untagged
@@ -255,6 +256,35 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.003978153, y: 0.001910296, z: 0.0010502486}
     m_Extent: {x: 0.0021702484, y: 0.002634853, z: 0.0025893548}
   m_DirtyAABB: 0
+--- !u!114 &5351226671501655178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161938428335838044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeArm
+  stats: {fileID: 11400000, guid: e28523e1bb482d04c8db3e09ae10df99, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &171821806959736330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2333658852349197090}
   - component: {fileID: 9017186545872211162}
+  - component: {fileID: 7143490287493541768}
   m_Layer: 6
   m_Name: Scavenger_R_Arm
   m_TagString: Untagged
@@ -1551,6 +1582,35 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.003486315, y: -0.0028783877, z: 0.00230597}
     m_Extent: {x: 0.00779392, y: 0.00807502, z: 0.0033404613}
   m_DirtyAABB: 0
+--- !u!114 &7143490287493541768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664215287058988914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeArm
+  stats: {fileID: 11400000, guid: 6f1da27a0344f4b46835733503a02814, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1829061740739235052
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,6 +2286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8938172419883956558}
   - component: {fileID: 4346518819476590203}
+  - component: {fileID: 6689542272757059529}
   m_Layer: 6
   m_Name: Human_L_Arm
   m_TagString: Untagged
@@ -2373,6 +2434,35 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.003930778, y: 0.0019014524, z: 0.0009067758}
     m_Extent: {x: 0.00223336, y: 0.0026180195, z: 0.0027035223}
   m_DirtyAABB: 0
+--- !u!114 &6689542272757059529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896118028097389691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeArm
+  stats: {fileID: 11400000, guid: be27c7f91301d234cb17eceb3fa42e17, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3081300355795621663
 GameObject:
   m_ObjectHideFlags: 0
@@ -4245,6 +4335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2372719646102658552}
   - component: {fileID: 2341019585531035567}
+  - component: {fileID: 9118505569637750153}
   m_Layer: 6
   m_Name: Alien_L_Arm
   m_TagString: Untagged
@@ -4392,6 +4483,35 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0040302235, y: 0.0016642893, z: 0.0012737524}
     m_Extent: {x: 0.0023031128, y: 0.002726403, z: 0.0023474798}
   m_DirtyAABB: 0
+--- !u!114 &9118505569637750153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332376266090700655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeArm
+  stats: {fileID: 11400000, guid: dc3efc9a3afdbbd4dba89f92ce5f1d68, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5355824440347416062
 GameObject:
   m_ObjectHideFlags: 0
@@ -4466,6 +4586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5194667767518207870}
   - component: {fileID: 9181781469645668355}
+  - component: {fileID: 619516213986368635}
   m_Layer: 6
   m_Name: Alien_R_Arm
   m_TagString: Untagged
@@ -4613,6 +4734,35 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0039899806, y: 0.0016856447, z: 0.0012157855}
     m_Extent: {x: 0.002248832, y: 0.0026986774, z: 0.0022760332}
   m_DirtyAABB: 0
+--- !u!114 &619516213986368635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5497298726791434463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeArm
+  stats: {fileID: 11400000, guid: 43f9c8a217cab2f4481f4293a052d96f, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5525998783907849611
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,6 +5742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8537831568319127126}
   - component: {fileID: 6477100519157327558}
+  - component: {fileID: 616568716914087780}
   m_Layer: 6
   m_Name: Cannon_L_Arm
   m_TagString: Untagged
@@ -5739,6 +5890,21 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.004402291, y: 0.0015158195, z: 0.0010379346}
     m_Extent: {x: 0.0032946644, y: 0.0032639077, z: 0.0029765328}
   m_DirtyAABB: 0
+--- !u!114 &616568716914087780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460617559153064771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b99eaac25093e48be3b1d538435344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RangedArm
+  stats: {fileID: 11400000, guid: 54af39bbf388d604da55fe0856f39e6d, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  projectilePrefab: {fileID: 0}
 --- !u!1 &7497189721635890914
 GameObject:
   m_ObjectHideFlags: 0
@@ -5865,11 +6031,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LimbsManager
   R_Arms:
-    m_Keys: 
-    m_Values: []
-  L_Arms: []
-  R_Legs: []
-  L_Legs: []
+  - {fileID: 161938428335838044}
+  - {fileID: 5497298726791434463}
+  - {fileID: 8643431253922232296}
+  - {fileID: 1664215287058988914}
+  - {fileID: 171821806959736330}
+  L_Arms:
+  - {fileID: 2896118028097389691}
+  - {fileID: 5332376266090700655}
+  - {fileID: 7460617559153064771}
+  - {fileID: 7665598485730301996}
+  - {fileID: 2347558605318851881}
+  R_Legs:
+  - {fileID: 8141146909447774986}
+  - {fileID: 490502520889442617}
+  - {fileID: 1829061740739235052}
+  - {fileID: 6513264100035400309}
+  - {fileID: 646385741466183896}
+  L_Legs:
+  - {fileID: 5652166983542975845}
+  - {fileID: 3121406459499105260}
+  - {fileID: 7266715989558164386}
+  - {fileID: 4459548895822794426}
+  - {fileID: 7910373475789119169}
+  leftLegStats: {fileID: 0}
+  rightLegStats: {fileID: 0}
+  leftArmStats: {fileID: 0}
+  rightArmStats: {fileID: 0}
 --- !u!114 &593272146282407447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5915,6 +6103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa1e6c847c3d984d9108134dfc60411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
+  IsLeftAttacking: 0
+  IsRightAttacking: 0
+  Interacted: 0
 --- !u!114 &8449110346009098402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5972,6 +6163,7 @@ MonoBehaviour:
   aimLayerMask:
     serializedVersion: 2
     m_Bits: 1
+  interactDistance: 4000
 --- !u!114 &658873709224275009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5979,7 +6171,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7497189721635890914}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -6012,6 +6204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2960813562385331652}
   - component: {fileID: 2291760396153579357}
+  - component: {fileID: 1626345119027897150}
   m_Layer: 6
   m_Name: Scavenger_L_Arm
   m_TagString: Untagged
@@ -6159,6 +6352,35 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0035030814, y: -0.0028538862, z: 0.0023353216}
     m_Extent: {x: 0.007806194, y: 0.008064315, z: 0.003407693}
   m_DirtyAABB: 0
+--- !u!114 &1626345119027897150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7665598485730301996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeArm
+  stats: {fileID: 11400000, guid: 0dfd53668dc85414e8b83534521a1c2e, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7757716774685874623
 GameObject:
   m_ObjectHideFlags: 0
@@ -6744,6 +6966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8750229898658987654}
   - component: {fileID: 476261333806569060}
+  - component: {fileID: 2808373599425579268}
   m_Layer: 6
   m_Name: Cannon_R_Arm
   m_TagString: Untagged
@@ -6891,6 +7114,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.004411628, y: 0.0015084111, z: 0.0010391357}
     m_Extent: {x: 0.00328547, y: 0.0032562409, z: 0.0029742718}
   m_DirtyAABB: 0
+--- !u!114 &2808373599425579268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8643431253922232296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b99eaac25093e48be3b1d538435344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RangedArm
+  stats: {fileID: 11400000, guid: 918e5749a4e25a14f8c5fa9e3754ec06, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  projectilePrefab: {fileID: 0}
 --- !u!1 &8859046011332650208
 GameObject:
   m_ObjectHideFlags: 0

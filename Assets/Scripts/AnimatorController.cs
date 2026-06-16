@@ -106,6 +106,12 @@ public class AnimatorController : MonoBehaviour
         currentState.EnterState(this);
     }
 
+    public void OnAttack(string stateNameHash, string layerName)
+    {
+        int layer = anim.GetLayerIndex(layerName);
+        anim.Play(stateNameHash, layer);
+    }
+
     private void OnHitCeiling()
     {
         anim.SetTrigger(hitCeilingHash);
