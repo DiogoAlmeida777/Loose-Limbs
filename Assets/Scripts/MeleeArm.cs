@@ -11,7 +11,7 @@ public class MeleeArm : Arm
     {
         if (base.Attack())
         {
-            playAttackAnim.Invoke(stats.attackAnimStateName, stats.animLayerName);
+            playAttackAnim?.Invoke(stats.attackAnimStateName, stats.animLayerName);
             return true;
         }
 

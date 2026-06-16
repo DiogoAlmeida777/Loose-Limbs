@@ -15,6 +15,7 @@ MonoBehaviour:
   bodySide: 1
   type: 2
   health: 100
-  moveSpeedMultiplier: 0.5
+  moveSpeed: 1.5
+  sprintMultiplier: 0
   stamina: 20
   jumpForce: 10

@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 7315495757168443735}
   - component: {fileID: 3580858946003442404}
   - component: {fileID: 5351226671501655178}
+  - component: {fileID: 1486980590801850017}
   m_Layer: 6
   m_Name: Human_R_Arm
   m_TagString: Untagged
@@ -386,6 +387,34 @@ MonoBehaviour:
       - m_Target: {fileID: 7979845060801932123}
         m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
         m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1486980590801850017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161938428335838044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: e28523e1bb482d04c8db3e09ae10df99, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -660,6 +689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4148625271440740637}
   - component: {fileID: 5239980171418563411}
+  - component: {fileID: 7635542148498507532}
   m_Layer: 6
   m_Name: Alien_R_Leg
   m_TagString: Untagged
@@ -807,6 +837,34 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0014394189, y: -0.0068636327, z: -0.00041547994}
     m_Extent: {x: 0.0013486904, y: 0.0049311905, z: 0.0022102064}
   m_DirtyAABB: 0
+--- !u!114 &7635542148498507532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490502520889442617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 749c7734a7e9bf245825f12e28ef3534, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &576946948905515752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1609,7 @@ GameObject:
   - component: {fileID: 2333658852349197090}
   - component: {fileID: 9017186545872211162}
   - component: {fileID: 7143490287493541768}
+  - component: {fileID: 3333632471577069240}
   m_Layer: 6
   m_Name: Scavenger_R_Arm
   m_TagString: Untagged
@@ -1727,6 +1786,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3333632471577069240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664215287058988914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 6f1da27a0344f4b46835733503a02814, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1690004181355583578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,6 +1877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1458924509721666025}
   - component: {fileID: 3204250717122253314}
+  - component: {fileID: 732929716197645151}
   m_Layer: 6
   m_Name: Cyborg_R_Leg
   m_TagString: Untagged
@@ -1937,6 +2025,34 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0012522403, y: -0.00673307, z: -0.000106347026}
     m_Extent: {x: 0.0015319975, y: 0.005200603, z: 0.0023498016}
   m_DirtyAABB: 0
+--- !u!114 &732929716197645151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829061740739235052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: aa4e6ea7da5400946929528fd166645f, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1893827180083078383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,6 +2680,7 @@ GameObject:
   - component: {fileID: 8938172419883956558}
   - component: {fileID: 4346518819476590203}
   - component: {fileID: 6689542272757059529}
+  - component: {fileID: 6895827841541800558}
   m_Layer: 6
   m_Name: Human_L_Arm
   m_TagString: Untagged
@@ -2731,6 +2848,34 @@ MonoBehaviour:
       - m_Target: {fileID: 7979845060801932123}
         m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
         m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6895827841541800558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896118028097389691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: be27c7f91301d234cb17eceb3fa42e17, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2942,6 +3087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6192954153998595499}
   - component: {fileID: 7717241274142020137}
+  - component: {fileID: 3149378197799338574}
   m_Layer: 6
   m_Name: Alien_L_Leg
   m_TagString: Untagged
@@ -3089,6 +3235,34 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0014438035, y: -0.0068642604, z: -0.00041569793}
     m_Extent: {x: 0.0013492089, y: 0.004933938, z: 0.0022124893}
   m_DirtyAABB: 0
+--- !u!114 &3149378197799338574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3121406459499105260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 7a8e3e9c948eb424eb789463289b6d24, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3136262568354424761
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,6 +3958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2486780280518929023}
   - component: {fileID: 8612073843330469596}
+  - component: {fileID: 965713222484665804}
   m_Layer: 6
   m_Name: Scavenger_L_Leg
   m_TagString: Untagged
@@ -3931,6 +4106,34 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.001833464, y: -0.0069630938, z: 0.00051320245}
     m_Extent: {x: 0.0013360442, y: 0.0053557167, z: 0.0021529607}
   m_DirtyAABB: 0
+--- !u!114 &965713222484665804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459548895822794426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: ed789559164960942bda18d62939919b, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4471637358570503014
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,6 +4984,7 @@ GameObject:
   - component: {fileID: 2372719646102658552}
   - component: {fileID: 2341019585531035567}
   - component: {fileID: 9118505569637750153}
+  - component: {fileID: 8798685285659300041}
   m_Layer: 6
   m_Name: Alien_L_Arm
   m_TagString: Untagged
@@ -4957,6 +5161,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8798685285659300041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332376266090700655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: dc3efc9a3afdbbd4dba89f92ce5f1d68, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5355824440347416062
 GameObject:
   m_ObjectHideFlags: 0
@@ -5032,6 +5264,7 @@ GameObject:
   - component: {fileID: 5194667767518207870}
   - component: {fileID: 9181781469645668355}
   - component: {fileID: 619516213986368635}
+  - component: {fileID: 9178203786966658593}
   m_Layer: 6
   m_Name: Alien_R_Arm
   m_TagString: Untagged
@@ -5208,6 +5441,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9178203786966658593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5497298726791434463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 43f9c8a217cab2f4481f4293a052d96f, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5525998783907849611
 GameObject:
   m_ObjectHideFlags: 0
@@ -5250,6 +5511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7122803195354766834}
   - component: {fileID: 5955701534404691913}
+  - component: {fileID: 5240481788558540861}
   m_Layer: 6
   m_Name: Human_L_Leg
   m_TagString: Untagged
@@ -5397,6 +5659,34 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0016154693, y: -0.0067565152, z: -0.000088015804}
     m_Extent: {x: 0.0015128506, y: 0.004826975, z: 0.0025411102}
   m_DirtyAABB: 0
+--- !u!114 &5240481788558540861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652166983542975845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 7eeaa2e02fbd83e4882601ff9510632a, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5688600795001682478
 GameObject:
   m_ObjectHideFlags: 0
@@ -5701,6 +5991,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6085663993055353504}
   - component: {fileID: 6110595097728317579}
+  - component: {fileID: 7717509997491787268}
   m_Layer: 6
   m_Name: Scavenger_R_Leg
   m_TagString: Untagged
@@ -5848,6 +6139,34 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0018298285, y: -0.006960519, z: 0.00051467004}
     m_Extent: {x: 0.0013326666, y: 0.005353167, z: 0.0021515414}
   m_DirtyAABB: 0
+--- !u!114 &7717509997491787268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6513264100035400309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 3f07580456ed23c47be1cf54451e9b15, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6535084607107028189
 GameObject:
   m_ObjectHideFlags: 0
@@ -6108,6 +6427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9191856630920579335}
   - component: {fileID: 6976836392354241256}
+  - component: {fileID: 1804010675602630934}
   m_Layer: 6
   m_Name: Cyborg_L_Leg
   m_TagString: Untagged
@@ -6255,6 +6575,34 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0012551792, y: -0.006733037, z: -0.000107869506}
     m_Extent: {x: 0.0015351566, y: 0.005204205, z: 0.0023523788}
   m_DirtyAABB: 0
+--- !u!114 &1804010675602630934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7266715989558164386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 745b757d43d992745a925414ceee69ba, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7347577562983740267
 GameObject:
   m_ObjectHideFlags: 0
@@ -6298,6 +6646,7 @@ GameObject:
   - component: {fileID: 8537831568319127126}
   - component: {fileID: 6477100519157327558}
   - component: {fileID: 616568716914087780}
+  - component: {fileID: 3219294651543726185}
   m_Layer: 6
   m_Name: Cannon_L_Arm
   m_TagString: Untagged
@@ -6460,6 +6809,34 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 54af39bbf388d604da55fe0856f39e6d, type: 2}
   playerInputHandler: {fileID: 3486225763191036187}
   projectilePrefab: {fileID: 0}
+--- !u!114 &3219294651543726185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460617559153064771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 54af39bbf388d604da55fe0856f39e6d, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7497189721635890914
 GameObject:
   m_ObjectHideFlags: 0
@@ -6477,6 +6854,7 @@ GameObject:
   - component: {fileID: 7979845060801932123}
   - component: {fileID: 1503270041522610388}
   - component: {fileID: 658873709224275009}
+  - component: {fileID: 2861846500654583585}
   m_Layer: 6
   m_Name: MainCharacter
   m_TagString: Player
@@ -6607,8 +6985,6 @@ MonoBehaviour:
   - {fileID: 7266715989558164386}
   - {fileID: 4459548895822794426}
   - {fileID: 7910373475789119169}
-  leftLegStats: {fileID: 0}
-  rightLegStats: {fileID: 0}
 --- !u!114 &593272146282407447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6654,6 +7030,7 @@ MonoBehaviour:
   anim: {fileID: 4898738322394777639}
   playerController: {fileID: 593272146282407447}
   inputHandler: {fileID: 3486225763191036187}
+  limbsManager: {fileID: 0}
   fwdSpeedString: fwdSpeed
   sideSpeedString: sideSpeed
   rotationString: rotation
@@ -6663,6 +7040,7 @@ MonoBehaviour:
   jumpString: jump
   isDeadString: isDead
   hitCeilingString: hitCeiling
+  numOfLegsString: NumberOfLegs
   damping: 0.2
 --- !u!114 &1503270041522610388
 MonoBehaviour:
@@ -6715,6 +7093,34 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2861846500654583585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497189721635890914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959614eb5647fb249b35d618520756d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BodyHealth
+  maxHealth: 100
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7665598485730301996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,6 +7132,7 @@ GameObject:
   - component: {fileID: 2960813562385331652}
   - component: {fileID: 2291760396153579357}
   - component: {fileID: 1626345119027897150}
+  - component: {fileID: 8547323028352617419}
   m_Layer: 6
   m_Name: Scavenger_L_Arm
   m_TagString: Untagged
@@ -6893,6 +7300,34 @@ MonoBehaviour:
       - m_Target: {fileID: 7979845060801932123}
         m_TargetAssemblyTypeName: AnimatorController, Assembly-CSharp
         m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8547323028352617419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7665598485730301996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 0dfd53668dc85414e8b83534521a1c2e, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7203,6 +7638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4524111184322950560}
   - component: {fileID: 2913178683993258400}
+  - component: {fileID: 8785257693595233076}
   m_Layer: 6
   m_Name: Human_R_Leg
   m_TagString: Untagged
@@ -7350,6 +7786,34 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0015934489, y: -0.0067764656, z: 0.000043176813}
     m_Extent: {x: 0.00153637, y: 0.0048422827, z: 0.0026682136}
   m_DirtyAABB: 0
+--- !u!114 &8785257693595233076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141146909447774986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 23602ed0da247784bb22a34d711204d3, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8313563478179259337
 GameObject:
   m_ObjectHideFlags: 0
@@ -7489,6 +7953,7 @@ GameObject:
   - component: {fileID: 8750229898658987654}
   - component: {fileID: 476261333806569060}
   - component: {fileID: 2808373599425579268}
+  - component: {fileID: 2089616312552564444}
   m_Layer: 6
   m_Name: Cannon_R_Arm
   m_TagString: Untagged
@@ -7651,6 +8116,34 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 918e5749a4e25a14f8c5fa9e3754ec06, type: 2}
   playerInputHandler: {fileID: 3486225763191036187}
   projectilePrefab: {fileID: 0}
+--- !u!114 &2089616312552564444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8643431253922232296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f9a0b77b916dc43a729348427ff642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LimbHealth
+  limbStats: {fileID: 11400000, guid: 918e5749a4e25a14f8c5fa9e3754ec06, type: 2}
+  OnLimbLoss:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2206279785624969295}
+        m_TargetAssemblyTypeName: LimbsManager, Assembly-CSharp
+        m_MethodName: loseLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8859046011332650208
 GameObject:
   m_ObjectHideFlags: 0

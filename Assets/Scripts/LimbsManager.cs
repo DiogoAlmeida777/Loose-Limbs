@@ -13,29 +13,27 @@ public class LimbsManager : MonoBehaviour
     private GameObject currentLeftLeg;
     private GameObject currentRightLeg;
 
-    [SerializeField] private LegStats leftLegStats;
-    [SerializeField] private LegStats rightLegStats;
+    private LegStats leftLegStats;
+    private LegStats rightLegStats;
 
     public int numberOfLegs { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
-
+        currentLeftArm = null;
+        currentLeftLeg = null;
+        currentRightArm = null;
+        currentRightLeg = null;
+        leftLegStats = null;
+        rightLegStats = null;
+        numberOfLegs = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
+        Debug.Log(numberOfLegs);
     }
-
-    private void loseLimb()
-    {
-
-    }
-
 
     private void getArm(ArmStats arm)
     {
@@ -78,7 +76,7 @@ public class LimbsManager : MonoBehaviour
             currentLeftLeg.SetActive(true);
             leftLegStats = leg;
         }
-        if (leg.bodySide == BodySide.Right)
+        else if (leg.bodySide == BodySide.Right)
         {
             if (currentRightLeg != null)
             {
@@ -101,6 +99,40 @@ public class LimbsManager : MonoBehaviour
 
         if (limb is ArmStats arm)
             getArm(arm);
+    }
+
+    private void loseArm(BodySide bs)
+    {
+        if (bs == BodySide.Left)
+            currentLeftArm = null;
+        else if (bs == BodySide.Right)
+            currentRightArm = null;
+    }
+
+    private void loseLeg(BodySide bs)
+    {
+        if (bs == BodySide.Left)
+        {
+            currentLeftLeg = null;
+            leftLegStats = null;
+        }
+        else if (bs == BodySide.Right)
+        {
+            currentRightLeg = null;
+            rightLegStats = null;
+        }
+        numberOfLegs -= 1;
+    }
+
+
+    public void loseLimb(LimbStats limb)
+    {
+        BodySide bodySide = limb.bodySide;
+        if (limb is LegStats)
+            loseLeg(bodySide);
+
+        if (limb is ArmStats)
+            loseArm(bodySide);
     }
 
 

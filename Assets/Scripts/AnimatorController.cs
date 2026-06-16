@@ -9,6 +9,7 @@ public class AnimatorController : MonoBehaviour
     #region Dependencies
     public PlayerController playerController;
     public PlayerInputHandler inputHandler;
+    public LimbsManager limbsManager;
     #endregion 
 
     #region Animation Parameters Strings
@@ -21,6 +22,7 @@ public class AnimatorController : MonoBehaviour
     public string jumpString = "jump";
     public string isDeadString = "isDead";
     public string hitCeilingString = "hitCeiling";
+    public string numOfLegsString = "NumberOfLegs";
     #endregion
 
     #region Animation Parameters Hashes
@@ -33,6 +35,7 @@ public class AnimatorController : MonoBehaviour
     public int jumpHash { get; private set; }
     public int isDeadHash { get; private set; }
     public int hitCeilingHash { get; private set; }
+    public int numOfLegsHash { get; private set; }
     #endregion
 
     #region State Machine
@@ -55,6 +58,7 @@ public class AnimatorController : MonoBehaviour
 
         playerController = GetComponent<PlayerController>();
         inputHandler = GetComponent<PlayerInputHandler>();
+        limbsManager = GetComponent<LimbsManager>();
 
         fwdSpeedHash = Animator.StringToHash(fwdSpeedString);
         sideSpeedHash = Animator.StringToHash(sideSpeedString);
@@ -65,7 +69,7 @@ public class AnimatorController : MonoBehaviour
         jumpHash = Animator.StringToHash(jumpString);
         isDeadHash = Animator.StringToHash(isDeadString);
         hitCeilingHash = Animator.StringToHash(hitCeilingString);
-
+        numOfLegsHash = Animator.StringToHash(numOfLegsString);
     }
 
     private void OnEnable()
@@ -82,6 +86,7 @@ public class AnimatorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        anim.SetInteger(numOfLegsHash, limbsManager.numberOfLegs);
         moveInput = inputHandler.MoveInput;
         anim.SetFloat(fwdSpeedHash, moveInput.y,damping,Time.deltaTime);
         anim.SetFloat(sideSpeedHash,moveInput.x,damping, Time.deltaTime);
@@ -115,5 +120,10 @@ public class AnimatorController : MonoBehaviour
     private void OnHitCeiling()
     {
         anim.SetTrigger(hitCeilingHash);
+    }
+
+    public void Death()
+    {
+        anim.SetBool(isDeadHash, true);
     }
 }

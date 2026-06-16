@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     #region XZ Movement
     [SerializeField] private float minMoveSpeed = 1.0f;
+    //private float currentStamina;
+    //private bool canSprint;
     #endregion
 
     #region Vertical Movement 
@@ -73,16 +75,6 @@ public class PlayerController : MonoBehaviour
         characterController.Move(MoveVector);
     }
 
-    // Function to use in case of free look cinemachine camera.
-    /*
-    private void FreeLookTurn()
-    {
-        Vector3 lookDirection = cameraTransform.forward;
-        lookDirection.y = 0;
-
-        Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,turnSpeed *Time.deltaTime);
-    }*/
 
     private void Gravity()
     {
