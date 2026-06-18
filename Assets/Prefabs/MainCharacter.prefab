@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3647877672543779404}
   - component: {fileID: 473186935085965517}
-  m_Layer: 6
+  - component: {fileID: 418922240857647897}
+  m_Layer: 7
   m_Name: RightUpLegHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,6 +56,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &418922240857647897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798314930086889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 0}
 --- !u!1 &14784127219131989
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +177,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2612878656334443365}
   - component: {fileID: 4189801296178968653}
-  m_Layer: 6
+  - component: {fileID: 2960431634830360158}
+  m_Layer: 7
   m_Name: LeftArmHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,6 +223,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2960431634830360158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125562683318456671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 0}
 --- !u!1 &161938428335838044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,7 +1852,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2737710292600230406}
   - component: {fileID: 34428984424396186}
-  m_Layer: 6
+  - component: {fileID: 2641130865375942100}
+  m_Layer: 7
   m_Name: TorsoHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1867,6 +1896,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2641130865375942100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690004181355583578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 2861846500654583585}
 --- !u!1 &1829061740739235052
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,7 +2137,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2170024163641023356}
   - component: {fileID: 8636326040881288332}
-  m_Layer: 6
+  - component: {fileID: 969766239225057838}
+  m_Layer: 7
   m_Name: RightLegHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2140,6 +2183,19 @@ CapsuleCollider:
   m_Height: 2.21
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &969766239225057838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933181342904548041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 0}
 --- !u!1 &1970295323618386137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2594,7 +2650,8 @@ GameObject:
   m_Component:
   - component: {fileID: 328201353521849941}
   - component: {fileID: 2766165777272376362}
-  m_Layer: 6
+  - component: {fileID: 3605655914154445485}
+  m_Layer: 7
   m_Name: HeadHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2637,6 +2694,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.48
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3605655914154445485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2629466625093701467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 2861846500654583585}
 --- !u!1 &2722326779915321236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3752,7 +3822,8 @@ GameObject:
   m_Component:
   - component: {fileID: 496882779337915194}
   - component: {fileID: 7018804740359881162}
-  m_Layer: 6
+  - component: {fileID: 2561354219114497223}
+  m_Layer: 7
   m_Name: RightForeArmHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3797,6 +3868,19 @@ CapsuleCollider:
   m_Height: 2.91
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2561354219114497223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986170718345965196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 0}
 --- !u!1 &4256713418219306949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,7 +3891,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8991072839652265375}
   - component: {fileID: 456858801180438311}
-  m_Layer: 6
+  - component: {fileID: 6839943608882175161}
+  m_Layer: 7
   m_Name: LeftUpLegHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3852,6 +3937,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6839943608882175161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256713418219306949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 0}
 --- !u!1 &4320250896422312306
 GameObject:
   m_ObjectHideFlags: 0
@@ -4513,7 +4611,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4913193422003105157}
   - component: {fileID: 3958568502585559134}
-  m_Layer: 6
+  - component: {fileID: 6378796216177942550}
+  m_Layer: 7
   m_Name: LeftLegHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4558,6 +4657,19 @@ CapsuleCollider:
   m_Height: 2.21
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6378796216177942550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787919003669553731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 0}
 --- !u!1 &4836411929860352870
 GameObject:
   m_ObjectHideFlags: 0
@@ -5697,7 +5809,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8979436551439141965}
   - component: {fileID: 6756641291581553731}
-  m_Layer: 6
+  - component: {fileID: 1792531808682593332}
+  m_Layer: 7
   m_Name: RightArmHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5742,6 +5855,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1792531808682593332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688600795001682478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 0}
 --- !u!1 &5857879775272394058
 GameObject:
   m_ObjectHideFlags: 0
@@ -6240,7 +6366,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8964262362266764583}
   - component: {fileID: 8853389830205355682}
-  m_Layer: 6
+  - component: {fileID: 8588356878356065670}
+  m_Layer: 7
   m_Name: LeftForeArmHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6285,6 +6412,19 @@ CapsuleCollider:
   m_Height: 2.91
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8588356878356065670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6681796549320447952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115e373f5afda5e4fb80da127929f647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
+  health: {fileID: 0}
 --- !u!1 &6908901200245510723
 GameObject:
   m_ObjectHideFlags: 0
@@ -6985,6 +7125,18 @@ MonoBehaviour:
   - {fileID: 7266715989558164386}
   - {fileID: 4459548895822794426}
   - {fileID: 7910373475789119169}
+  leftArmHurtboxes:
+  - {fileID: 2960431634830360158}
+  - {fileID: 8588356878356065670}
+  leftLegHurtboxes:
+  - {fileID: 6839943608882175161}
+  - {fileID: 6378796216177942550}
+  rightArmHurtboxes:
+  - {fileID: 1792531808682593332}
+  - {fileID: 2561354219114497223}
+  rightLegHurtboxes:
+  - {fileID: 418922240857647897}
+  - {fileID: 969766239225057838}
 --- !u!114 &593272146282407447
 MonoBehaviour:
   m_ObjectHideFlags: 0

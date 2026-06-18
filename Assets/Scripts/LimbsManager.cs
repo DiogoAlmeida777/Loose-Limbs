@@ -1,20 +1,35 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LimbsManager : MonoBehaviour
 {
+    #region Limbs
     [SerializeField] private GameObject[] R_Arms;
     [SerializeField] private GameObject[] L_Arms;
     [SerializeField] private GameObject[] R_Legs;
     [SerializeField] private GameObject[] L_Legs;
+    #endregion
 
-    private GameObject currentLeftArm;
-    private GameObject currentRightArm;
-    private GameObject currentLeftLeg;
-    private GameObject currentRightLeg;
+    #region Active Limbs
+    public GameObject currentLeftArm { get; private set; }
+    public GameObject currentRightArm { get; private set; }
+    public GameObject currentLeftLeg { get; private set; }
+    public GameObject currentRightLeg { get; private set; }
+    #endregion
 
+    #region Leg Statistics
     private LegStats leftLegStats;
     private LegStats rightLegStats;
+    #endregion
+
+    #region Limb's Hurtboxes
+    [SerializeField] private Hurtbox[] leftArmHurtboxes;
+    [SerializeField] private Hurtbox[] leftLegHurtboxes;
+    [SerializeField] private Hurtbox[] rightArmHurtboxes;
+    [SerializeField] private Hurtbox[] rightLegHurtboxes;
+    #endregion
+
 
     public int numberOfLegs { get; private set; }
 
@@ -30,10 +45,6 @@ public class LimbsManager : MonoBehaviour
         numberOfLegs = 0;
     }
 
-    private void Update()
-    {
-        Debug.Log(numberOfLegs);
-    }
 
     private void getArm(ArmStats arm)
     {
@@ -46,6 +57,8 @@ public class LimbsManager : MonoBehaviour
             int index = (int)arm.type;
             currentLeftArm = L_Arms[index];
             currentLeftArm.SetActive(true);
+            foreach(Hurtbox hurtbox in leftArmHurtboxes)
+                hurtbox.setHealth(currentLeftArm.GetComponent<Health>());
         }
         else if (arm.bodySide == BodySide.Right)
         {
@@ -56,6 +69,8 @@ public class LimbsManager : MonoBehaviour
             int index = (int)arm.type;
             currentRightArm = R_Arms[index];
             currentRightArm.SetActive(true);
+            foreach (Hurtbox hurtbox in rightArmHurtboxes)
+                hurtbox.setHealth(currentRightArm.GetComponent<Health>());
         }
 
     }
@@ -75,6 +90,8 @@ public class LimbsManager : MonoBehaviour
             currentLeftLeg = L_Legs[index];
             currentLeftLeg.SetActive(true);
             leftLegStats = leg;
+            foreach (Hurtbox hurtbox in leftLegHurtboxes)
+                hurtbox.setHealth(currentLeftLeg.GetComponent<Health>());
         }
         else if (leg.bodySide == BodySide.Right)
         {
@@ -89,6 +106,8 @@ public class LimbsManager : MonoBehaviour
             currentRightLeg = R_Legs[index];
             currentRightLeg.SetActive(true);
             rightLegStats = leg;
+            foreach (Hurtbox hurtbox in rightLegHurtboxes)
+                hurtbox.setHealth(currentRightLeg.GetComponent<Health>());
         }
     }
 
@@ -104,9 +123,17 @@ public class LimbsManager : MonoBehaviour
     private void loseArm(BodySide bs)
     {
         if (bs == BodySide.Left)
+        {
             currentLeftArm = null;
+            foreach (Hurtbox hurtbox in leftArmHurtboxes)
+                hurtbox.setHealth(null);
+        }
         else if (bs == BodySide.Right)
+        {
             currentRightArm = null;
+            foreach (Hurtbox hurtbox in rightArmHurtboxes)
+                hurtbox.setHealth(null);
+        }
     }
 
     private void loseLeg(BodySide bs)
@@ -115,11 +142,15 @@ public class LimbsManager : MonoBehaviour
         {
             currentLeftLeg = null;
             leftLegStats = null;
+            foreach (Hurtbox hurtbox in leftLegHurtboxes)
+                hurtbox.setHealth(null);
         }
         else if (bs == BodySide.Right)
         {
             currentRightLeg = null;
             rightLegStats = null;
+            foreach (Hurtbox hurtbox in rightLegHurtboxes)
+                hurtbox.setHealth(null);
         }
         numberOfLegs -= 1;
     }

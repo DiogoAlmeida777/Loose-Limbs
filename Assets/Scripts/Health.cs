@@ -21,6 +21,5 @@ public abstract class Health : MonoBehaviour
     }
 
     protected abstract void healthDepleted();
-
     
 }

@@ -18,8 +18,4 @@ public class BodyHealth : Health
         OnDeath?.Invoke();
     }
 
-    private void Update()
-    {
-        takeDamage(0.1f);
-    }
 }

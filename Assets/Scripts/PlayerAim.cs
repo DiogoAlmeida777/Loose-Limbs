@@ -42,8 +42,8 @@ public class PlayerAim : MonoBehaviour
             }
         }
 
-        if (currentInteractable != null)
-            Debug.Log(currentInteractable.ToString());
+        //if (currentInteractable != null)
+        //    Debug.Log(currentInteractable.ToString());
 
         if (inputHandler.Interacted && currentInteractable != null)
         {
