@@ -6948,7 +6948,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RangedArm
   stats: {fileID: 11400000, guid: 54af39bbf388d604da55fe0856f39e6d, type: 2}
   playerInputHandler: {fileID: 3486225763191036187}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 5323615121291610446, guid: b0c68a6068d313443a3f646055f02684, type: 3}
+  handPos: {fileID: 2373687944554538385}
+  aimPos: {fileID: 0}
 --- !u!114 &3219294651543726185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8267,7 +8269,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RangedArm
   stats: {fileID: 11400000, guid: 918e5749a4e25a14f8c5fa9e3754ec06, type: 2}
   playerInputHandler: {fileID: 3486225763191036187}
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 5323615121291610446, guid: b0c68a6068d313443a3f646055f02684, type: 3}
+  handPos: {fileID: 6415600956400402509}
+  aimPos: {fileID: 0}
 --- !u!114 &2089616312552564444
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,16 +7,8 @@ public class MeleeArm : Arm
     public UnityEvent<string,string> playAttackAnim;
 
 
-    public override bool Attack()
+    public override void Attack()
     {
-        if (base.Attack())
-        {
-            playAttackAnim?.Invoke(stats.attackAnimStateName, stats.animLayerName);
-            return true;
-        }
-
-        return false;
-
-
+        playAttackAnim?.Invoke(stats.attackAnimStateName, stats.animLayerName);
     }
 }

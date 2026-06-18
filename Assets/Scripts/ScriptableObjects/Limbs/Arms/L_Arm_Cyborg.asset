@@ -16,7 +16,7 @@ MonoBehaviour:
   type: 2
   health: 100
   meleeDamage: 0
-  attackCooldown: 10
+  attackCooldown: 1
   canGrab: 0
   attackAnimStateName: 
   animLayerName: 

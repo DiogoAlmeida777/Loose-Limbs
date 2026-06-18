@@ -6,28 +6,28 @@ public abstract class Arm : MonoBehaviour
 {
     [SerializeField] protected ArmStats stats;
     [SerializeField] private PlayerInputHandler playerInputHandler;
-    private float nextAttackTime;
+    protected float nextAttackTime;
+
+    public bool CanAttack => Time.time > nextAttackTime;
 
     protected virtual void Update()
     {
         if (playerInputHandler.IsLeftAttacking && stats.bodySide == BodySide.Left)
-            Attack();
-        
-        if (playerInputHandler.IsRightAttacking && stats.bodySide == BodySide.Right) 
-            Attack();
+            if (CanAttack)
+            {
+                Attack();
+                nextAttackTime = Time.time + stats.attackCooldown;
+            }
+
+
+        if (playerInputHandler.IsRightAttacking && stats.bodySide == BodySide.Right)
+            if (CanAttack)
+            {
+                Attack();
+                nextAttackTime = Time.time + stats.attackCooldown;
+            }
     }
 
-    public virtual bool Attack() {
-
-        if (Time.time < nextAttackTime)
-        {
-            return false;
-        }
-            
-
-        nextAttackTime = Time.time + stats.attackCooldown;
-        return true;
-    }
-
+    public abstract void Attack();
 
 }
