@@ -15,7 +15,7 @@ public class LimbHealth : Health
 
     protected override void healthDepleted()
     {
-        OnLimbLoss!.Invoke(limbStats);
+        OnLimbLoss?.Invoke(limbStats);
         gameObject.SetActive(false);
     }
 
