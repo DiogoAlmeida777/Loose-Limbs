@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4356957435922185999}
   - component: {fileID: 50099558362202332}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 825259440646504477}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.414, y: 0.079, z: -0}
+  m_LocalPosition: {x: 1.289, y: 0.086, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5084,10 +5084,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2a310488c987524bb590a9992836e07, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7402053888240018144}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f2a310488c987524bb590a9992836e07, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2253671615666882663}
   m_SourcePrefab: {fileID: 100100000, guid: f2a310488c987524bb590a9992836e07, type: 3}
 --- !u!4 &289392642197565632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2a310488c987524bb590a9992836e07, type: 3}
   m_PrefabInstance: {fileID: 256309828504344363}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1103366239532378746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f2a310488c987524bb590a9992836e07, type: 3}
+  m_PrefabInstance: {fileID: 256309828504344363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2253671615666882663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103366239532378746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5dcf406b0710e4448f636e304ddf1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun
+  bulletPrefab: {fileID: 6323111274232538139, guid: fd922120ba53b974c8f99e4777233ab4, type: 3}
+  fireRate: 1
+  maxAmmo: 7
+  shootPos: {fileID: 7402053888240018144}
