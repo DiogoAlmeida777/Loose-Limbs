@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 7315495757168443735}
   - component: {fileID: 3580858946003442404}
   - component: {fileID: 5351226671501655178}
+  - component: {fileID: 7994095111135972616}
   - component: {fileID: 1486980590801850017}
   m_Layer: 6
   m_Name: Human_R_Arm
@@ -402,7 +403,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161938428335838044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
   m_Name: 
@@ -424,6 +425,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7994095111135972616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161938428335838044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0e16d3c34daf44cae2dc2a5e4f9833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabbingArm
+  stats: {fileID: 11400000, guid: e28523e1bb482d04c8db3e09ae10df99, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  gun: {fileID: 0}
 --- !u!114 &1486980590801850017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2750,6 +2781,7 @@ GameObject:
   - component: {fileID: 8938172419883956558}
   - component: {fileID: 4346518819476590203}
   - component: {fileID: 6689542272757059529}
+  - component: {fileID: 5949487248642714254}
   - component: {fileID: 6895827841541800558}
   m_Layer: 6
   m_Name: Human_L_Arm
@@ -2905,7 +2937,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2896118028097389691}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
   m_Name: 
@@ -2927,6 +2959,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5949487248642714254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896118028097389691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0e16d3c34daf44cae2dc2a5e4f9833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabbingArm
+  stats: {fileID: 11400000, guid: be27c7f91301d234cb17eceb3fa42e17, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  gun: {fileID: 0}
 --- !u!114 &6895827841541800558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5096,6 +5158,7 @@ GameObject:
   - component: {fileID: 2372719646102658552}
   - component: {fileID: 2341019585531035567}
   - component: {fileID: 9118505569637750153}
+  - component: {fileID: 734610057840140096}
   - component: {fileID: 8798685285659300041}
   m_Layer: 6
   m_Name: Alien_L_Arm
@@ -5251,7 +5314,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5332376266090700655}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
   m_Name: 
@@ -5273,6 +5336,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &734610057840140096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332376266090700655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0e16d3c34daf44cae2dc2a5e4f9833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabbingArm
+  stats: {fileID: 11400000, guid: dc3efc9a3afdbbd4dba89f92ce5f1d68, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  gun: {fileID: 0}
 --- !u!114 &8798685285659300041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5376,6 +5469,7 @@ GameObject:
   - component: {fileID: 5194667767518207870}
   - component: {fileID: 9181781469645668355}
   - component: {fileID: 619516213986368635}
+  - component: {fileID: 4351928744627205700}
   - component: {fileID: 9178203786966658593}
   m_Layer: 6
   m_Name: Alien_R_Arm
@@ -5531,7 +5625,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5497298726791434463}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f525f5a25c85e42499cf68ea8abf03f8, type: 3}
   m_Name: 
@@ -5553,6 +5647,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4351928744627205700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5497298726791434463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0e16d3c34daf44cae2dc2a5e4f9833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrabbingArm
+  stats: {fileID: 11400000, guid: 43f9c8a217cab2f4481f4293a052d96f, type: 2}
+  playerInputHandler: {fileID: 3486225763191036187}
+  playAttackAnim:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7979845060801932123}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  gun: {fileID: 0}
 --- !u!114 &9178203786966658593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6951,6 +7075,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5323615121291610446, guid: b0c68a6068d313443a3f646055f02684, type: 3}
   handPos: {fileID: 2373687944554538385}
   aimPos: {fileID: 0}
+  changeRigWeight:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3219294651543726185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6991,6 +7118,7 @@ GameObject:
   - component: {fileID: 4898738322394777639}
   - component: {fileID: 9119685787540698207}
   - component: {fileID: 2206279785624969295}
+  - component: {fileID: 7286706870438334360}
   - component: {fileID: 593272146282407447}
   - component: {fileID: 3486225763191036187}
   - component: {fileID: 7979845060801932123}
@@ -7139,6 +7267,29 @@ MonoBehaviour:
   rightLegHurtboxes:
   - {fileID: 418922240857647897}
   - {fileID: 969766239225057838}
+--- !u!114 &7286706870438334360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497189721635890914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddeab3cfed6c7b48b4bea41df67b08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunsManager
+  weapons:
+  - gunType: 0
+    slot:
+    - {fileID: 0}
+    - {fileID: 0}
+  - gunType: 1
+    slot:
+    - {fileID: 0}
+  - gunType: 2
+    slot:
+    - {fileID: 0}
 --- !u!114 &593272146282407447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8272,6 +8423,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5323615121291610446, guid: b0c68a6068d313443a3f646055f02684, type: 3}
   handPos: {fileID: 6415600956400402509}
   aimPos: {fileID: 0}
+  changeRigWeight:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2089616312552564444
 MonoBehaviour:
   m_ObjectHideFlags: 0
