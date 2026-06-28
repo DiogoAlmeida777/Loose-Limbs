@@ -11,8 +11,11 @@ public class RigManager : MonoBehaviour
     [SerializeField] private MultiAimConstraint leftHandAim;
     [SerializeField] private MultiAimConstraint rightHandAim;
 
-    [SerializeField] private Transform leftHandtarget;
-    [SerializeField] private Transform aimPos;
+    [SerializeField] private Transform leftHandTarget;
+    [SerializeField] private Transform followTarget;
+
+    private Transform aimPos;
+
 
     private void Awake()
     {
@@ -27,13 +30,23 @@ public class RigManager : MonoBehaviour
             enableRig();
     }
 
+    private void LateUpdate()
+    {
+        if (followTarget)
+        {
+            leftHandTarget.position = followTarget.position;
+            leftHandTarget.rotation = followTarget.rotation;
+        }
+    }
+
     public void setArmConfig(BodySide side, float weight)
     {
         if (side == BodySide.Left)
         {
             leftHandIK.weight = weight;
             leftHandAim.weight = weight;
-            //leftHandtarget.SetParent(aimPos);
+            leftHandIK.data.targetRotationWeight = 0f;
+            followTarget = aimPos;
         }
         else if (side == BodySide.Right)
         {
@@ -48,6 +61,7 @@ public class RigManager : MonoBehaviour
         leftHandAim.weight = 0f;
         rightHandIK.weight = 0f;
         rightHandAim.weight = 0f;
+        leftHandIK.data.targetRotationWeight = 0f;
     }
 
     public void setHoldingTwoHandsWeaponConfig(Transform handlePos)
@@ -56,7 +70,8 @@ public class RigManager : MonoBehaviour
         rightHandIK.weight = 0f;
         leftHandIK.weight = 1.0f;
         leftHandAim.weight = 0f;
-        leftHandtarget.SetParent(handlePos);
+        leftHandIK.data.targetRotationWeight = 1.0f;
+        followTarget = handlePos;
     }
 
     public void setupHandIKWeight(float newWeight, BodySide side)
