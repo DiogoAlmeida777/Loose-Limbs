@@ -10,10 +10,12 @@ public class Hitbox : MonoBehaviour
     {
         if (layerMask == (layerMask | (1 << other.transform.gameObject.layer)))
         {
-            Hurtbox hurtbox = other.GetComponent<Hurtbox>();
+            Hurtbox hurtbox = other.GetComponentInParent<Hurtbox>();
+
             if (hurtbox)
             {
                 hurtbox.OnHit(damage);
+                Destroy(gameObject);
             }
         }
     }
