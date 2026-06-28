@@ -11,11 +11,12 @@ public class BodyHealth : Health
     private void OnEnable()
     {
         currentHealth = maxHealth;
+        Debug.Log($"{gameObject.name} health reset to {currentHealth}");
     }
 
     protected override void healthDepleted()
     {
+        Debug.Log($"{gameObject.name} health depleted. Calling OnDeath.");
         OnDeath?.Invoke();
     }
-
 }

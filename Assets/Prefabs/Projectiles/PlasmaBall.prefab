@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6553076347846422622}
   - component: {fileID: 6931888069873649121}
   - component: {fileID: 5358559107097846528}
+  - component: {fileID: 54407729301374961}
   m_Layer: 0
   m_Name: PlasmaBall
   m_TagString: Untagged
@@ -57,7 +58,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.14
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6931888069873649121
 Rigidbody:
@@ -83,9 +84,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!114 &5358559107097846528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +100,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   speed: 20
+--- !u!114 &54407729301374961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323615121291610446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3306ca80e7cf3b1408cabcb7b44d5f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hitbox
+  damage: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5629248621466407029
 GameObject:
   m_ObjectHideFlags: 0
