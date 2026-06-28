@@ -5111,7 +5111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5dcf406b0710e4448f636e304ddf1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
+  type: 2
   bulletPrefab: {fileID: 6323111274232538139, guid: fd922120ba53b974c8f99e4777233ab4, type: 3}
+  muzzleFlash: {fileID: 4356957435922185999}
   fireRate: 1
+  currAmmo: 0
   maxAmmo: 7
   shootPos: {fileID: 7402053888240018144}
+  aimPos: {fileID: 0}

@@ -1,41 +1,84 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun : MonoBehaviour, IInteractable
 {
-
+    [SerializeField] private GunType type;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private float fireRate;
+    [SerializeField] private int currAmmo;
     [SerializeField] private int maxAmmo;
     [SerializeField] private Transform shootPos;
-    private int currAmmo;
+    [SerializeField] private Transform aimPos;
 
-    private float nextShotTimer;
+    public Transform HandlePoint => gameObject.transform.Find("handlePos");
+    public int CurrentAmmo => currAmmo;
+    public int MaxAmmo => maxAmmo;
+
+    private bool canShoot = true;
+
+    private void chamberNextRound() { canShoot = true; }
+
+    private void Awake()
+    {
+        aimPos = GameObject.FindWithTag("AimPosition").transform;
+    }
 
     void Start()
     {
         currAmmo = maxAmmo;
     }
 
-    public void Fire()
+    private void OnDisable()
+    {
+        currAmmo = 0;
+    }
+
+    public void pullTrigger()
+    {
+        if (canShoot) {
+            fire();
+            canShoot = false;
+            Invoke("chamberNextRound", fireRate);
+        }
+    }
+
+    private void fire()
     {
         if (currAmmo == 0) return;
-        if (nextShotTimer < fireRate) return;
-
-        Instantiate(bulletPrefab, shootPos.position, Quaternion.identity);
-        nextShotTimer = 0;
+        Quaternion shootDir;
+        if (aimPos)
+            shootDir = Quaternion.LookRotation(aimPos.position - shootPos.position);
+        else
+            shootDir = shootPos.rotation;
+        Instantiate(bulletPrefab, shootPos.position, shootDir);
+        muzzleFlash.Play();
         currAmmo--;
     }
 
     public void addAmmo(int ammo)
     {
-        currAmmo = Mathf.Min(currAmmo + ammo, maxAmmo);
+        currAmmo = Mathf.Min(CurrentAmmo + ammo, maxAmmo);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Interact(GameObject interactor)
     {
-        nextShotTimer += Time.deltaTime;
+        LimbsManager limbManager = interactor.GetComponent<LimbsManager>();
+        if (!limbManager) return;
+        GunsManager gunsManager = interactor.GetComponent<GunsManager>();
+        if (!gunsManager) return;
+
+        if (gunsManager.tryEquipWeapon(this, limbManager))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public GunType getGunType()
+    {
+        return type;
     }
 }

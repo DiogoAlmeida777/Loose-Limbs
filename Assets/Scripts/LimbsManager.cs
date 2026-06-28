@@ -166,6 +166,31 @@ public class LimbsManager : MonoBehaviour
             loseArm(bodySide);
     }
 
+    private bool armCanGrab(GameObject armGO)
+    {
+        if (!armGO) return false;
+        Arm arm = armGO.GetComponent<Arm>();
+        if (!arm) return false;
+        if (!arm.canGrab()) return false;
+        return true;
+    }
+
+    public int numberOfArmsCanGrab()
+    {
+        int numberOfArms = 0;
+
+        if (armCanGrab(currentLeftArm)) 
+            numberOfArms++;
+
+        if (armCanGrab(currentRightArm))
+            numberOfArms++;
+
+        return numberOfArms;
+    }
+
+    public bool LeftArmCanGrab => armCanGrab(currentLeftArm);
+    public bool RightArmCanGrab => armCanGrab(currentRightArm);
+
 
     public float MoveSpeed => 
         (leftLegStats != null? leftLegStats.moveSpeed : 0) + 
@@ -183,7 +208,5 @@ public class LimbsManager : MonoBehaviour
     public float Stamina =>
         (leftLegStats != null ? leftLegStats.stamina : 0) +
         (rightLegStats != null ? rightLegStats.stamina : 0);
-
-
-    
+ 
 }

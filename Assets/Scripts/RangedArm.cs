@@ -8,7 +8,7 @@ public class RangedArm : Arm
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform handPos;
     [SerializeField] private Transform aimPos;
-    public UnityEvent<float,BodySide> changeRigWeight;
+    public UnityEvent<BodySide,float> OnRigConfigChange;
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class RangedArm : Arm
 
     private void OnEnable()
     {
-        changeRigWeight?.Invoke(1.0f,stats.bodySide);
+        OnRigConfigChange?.Invoke(stats.bodySide,1.0f);
     }
     public override void Attack()
     {
@@ -27,6 +27,6 @@ public class RangedArm : Arm
 
     private void OnDisable()
     {
-        changeRigWeight?.Invoke(0f,stats.bodySide);
+        OnRigConfigChange?.Invoke(stats.bodySide,0f);
     }
 }
