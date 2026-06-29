@@ -38,6 +38,8 @@ public class AnimatorController : MonoBehaviour
     public int numOfLegsHash { get; private set; }
     #endregion
 
+    public int rifleAimingLayer;
+
     #region State Machine
     public MovementState currentState { get; private set; }
 
@@ -70,6 +72,8 @@ public class AnimatorController : MonoBehaviour
         isDeadHash = Animator.StringToHash(isDeadString);
         hitCeilingHash = Animator.StringToHash(hitCeilingString);
         numOfLegsHash = Animator.StringToHash(numOfLegsString);
+
+        rifleAimingLayer = anim.GetLayerIndex("RifleAiming");
     }
 
     private void OnEnable()
@@ -109,6 +113,11 @@ public class AnimatorController : MonoBehaviour
     public void changeState(MovementState state) { 
         currentState = state;
         currentState.EnterState(this);
+    }
+
+    public void changeRifleAimingWeight(float weight)
+    {
+        anim.SetLayerWeight(rifleAimingLayer, weight);
     }
 
     public void OnAttack(string stateNameHash, string layerName)

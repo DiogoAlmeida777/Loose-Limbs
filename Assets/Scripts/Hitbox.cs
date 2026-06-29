@@ -15,7 +15,7 @@ public class Hitbox : MonoBehaviour
             if (hurtbox)
             {
                 hurtbox.OnHit(damage);
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
     }

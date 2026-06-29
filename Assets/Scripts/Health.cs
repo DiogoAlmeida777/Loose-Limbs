@@ -4,12 +4,12 @@ using UnityEngine.Events;
 public abstract class Health : MonoBehaviour
 {
 
-    public float currentHealth {  get; protected set; }
+    public float currentHealth { get; protected set; }
     public abstract float MaxHealth { get; }
 
     public virtual void getHeal(float hp)
     {
-        currentHealth += hp;
+        currentHealth = Mathf.Min(currentHealth + hp, MaxHealth);
     }
 
     public virtual void takeDamage(float damage)
@@ -21,5 +21,5 @@ public abstract class Health : MonoBehaviour
     }
 
     protected abstract void healthDepleted();
-    
+
 }

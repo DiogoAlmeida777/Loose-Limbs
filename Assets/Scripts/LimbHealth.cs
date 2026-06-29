@@ -8,9 +8,9 @@ public class LimbHealth : Health
 
     public override float MaxHealth => limbStats.health;
 
-    void OnEnable()
+    public void setCurrentHealth(float health)
     {
-        currentHealth = limbStats.health;
+        currentHealth = health;
     }
 
     protected override void healthDepleted()

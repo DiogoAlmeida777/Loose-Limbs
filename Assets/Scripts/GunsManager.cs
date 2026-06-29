@@ -21,7 +21,9 @@ public class GunsManager : MonoBehaviour
 
     public UnityEvent<BodySide, float> OnPistolRigConfig;
 
-    public UnityEvent<Transform> OnHoldingTwoHandedWeapon;
+    public UnityEvent<Transform> OnTwoHandedWeaponRigConfig;
+
+    public UnityEvent<float> OnChangeRifleAimState;
 
     private void Awake()
     {
@@ -170,7 +172,8 @@ public class GunsManager : MonoBehaviour
             GrabbingArm leftArm = limbsManager.currentLeftArm.GetComponent<GrabbingArm>();
             rightArm.attachGun(newWeapon);
             leftArm.attachGun(newWeapon);
-            OnHoldingTwoHandedWeapon?.Invoke(newWeapon.HandlePoint);
+            OnTwoHandedWeaponRigConfig?.Invoke(newWeapon.HandlePoint);
+            OnChangeRifleAimState?.Invoke(1.0f);
             return true;
         }
 
@@ -198,6 +201,7 @@ public class GunsManager : MonoBehaviour
         foreach (GameObject weaponGO in currentWeapon.slot)
             if (weaponGO) weaponGO.SetActive(false);
         isArmed = false;
+        OnChangeRifleAimState?.Invoke(0f);
     }
 
     public void tossWeapon()

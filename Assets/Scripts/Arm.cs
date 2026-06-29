@@ -10,6 +10,8 @@ public abstract class Arm : MonoBehaviour
 
     public bool CanAttack => Time.time > nextAttackTime;
 
+    public ArmStats Stats => stats;
+
     protected virtual void Update()
     {
         if (playerInputHandler.IsLeftAttacking && stats.bodySide == BodySide.Left)

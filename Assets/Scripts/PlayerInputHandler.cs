@@ -17,6 +17,8 @@ public class PlayerInputHandler : MonoBehaviour, InputSystem.IPlayerActions
 
     public bool Interacted;
 
+    public event Action Droped;
+
     //public event Action LeftAttack;
     //public event Action RightAttack;
     //public event Action Interacted;
@@ -103,6 +105,9 @@ public class PlayerInputHandler : MonoBehaviour, InputSystem.IPlayerActions
             Interacted = false;
     }
 
-
-
+    public void OnDrop(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            Droped?.Invoke();
+    }
 }
