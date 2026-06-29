@@ -95,10 +95,11 @@ public class AnimatorController : MonoBehaviour
         anim.SetFloat(fwdSpeedHash, moveInput.y,damping,Time.deltaTime);
         anim.SetFloat(sideSpeedHash,moveInput.x,damping, Time.deltaTime);
         anim.SetFloat(rotationHash, inputHandler.LookInput.x);
-        
+        anim.SetBool(onGroundHash, playerController.IsGrounded());
+
         currentState.UpdateState(this);
 
-        anim.SetBool(onGroundHash, playerController.IsGrounded());
+
     }
 
     private void initializeStatemachine()

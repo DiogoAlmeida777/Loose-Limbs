@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 02ed316f24090224d9cedceadebbf60e
+guid: c84d9f86fd079eb4ea67017f26600e20
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sword And Shield Slash Right
+      name: Sword And Shield Slash Left
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
@@ -51,20 +51,20 @@ ModelImporter:
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
-      mirror: 0
+      mirror: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.25084746
+      - time: 0.2576271
         functionName: OnEnableHitbox
-        data: Right
+        data: Left
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.49830508
         functionName: OnDisableHitbox
-        data: Right
+        data: Left
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

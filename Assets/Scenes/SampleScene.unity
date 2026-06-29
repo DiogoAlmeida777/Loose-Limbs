@@ -6443,6 +6443,27 @@ RectTransform:
   m_AnchoredPosition: {x: 15.300049, y: 5.200012}
   m_SizeDelta: {x: -613.0582, y: -324.0559}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &301660072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4678307930578171733, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
+  m_PrefabInstance: {fileID: 1770215868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &301660077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301660072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3306ca80e7cf3b1408cabcb7b44d5f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hitbox
+  damage: 20
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &327298291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2373687944554538385, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
@@ -7640,7 +7661,7 @@ MonoBehaviour:
     CollisionFilter:
       serializedVersion: 2
       m_Bits: 1
-    IgnoreTag: Player
+    IgnoreTag: Weapon
     CameraRadius: 0.2
     DampingIntoCollision: 0
     DampingFromCollision: 0.5
@@ -20486,6 +20507,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunDropper
   gunPrefabs: {fileID: 11400000, guid: 18fc496f12260e047be283882b5c4e8c, type: 2}
+--- !u!114 &1394658886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973939553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e221fe16a35544791c426adc1041ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationEventRelay
 --- !u!1 &1419218373
 GameObject:
   m_ObjectHideFlags: 0
@@ -27810,7 +27843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 14784127219131989, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 125562683318456671, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       propertyPath: m_Layer
@@ -27950,7 +27983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 595553291848941059, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 616568716914087780, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       propertyPath: OnRangedArm.m_PersistentCalls.m_Calls.Array.size
@@ -28541,6 +28574,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4898738322394777639, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898738322394777639, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
@@ -28566,7 +28603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5795020678250329379, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6513264100035400309, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       propertyPath: m_IsActive
@@ -28839,12 +28876,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7497189721635890914, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1394658885}
+    - targetCorrespondingSourceObject: {fileID: 7497189721635890914, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1394658886}
     - targetCorrespondingSourceObject: {fileID: 4787919003669553731, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 767610679}
     - targetCorrespondingSourceObject: {fileID: 4256713418219306949, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1851177336}
+    - targetCorrespondingSourceObject: {fileID: 4678307930578171733, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 301660077}
   m_SourcePrefab: {fileID: 100100000, guid: 2f26eb961b287954ba0619d3ee4cff9b, type: 3}
 --- !u!1 &1799196598
 GameObject:

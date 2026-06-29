@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3416129318426611431}
   - component: {fileID: 2278551399901449728}
   - component: {fileID: 7719643345211932749}
-  - component: {fileID: -6440808977795762816}
   - component: {fileID: -3979782529361193202}
   m_Layer: 0
   m_Name: PistolBulletPrefab
@@ -129,18 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   speed: 100
---- !u!114 &-6440808977795762816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6963703419089604164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3306ca80e7cf3b1408cabcb7b44d5f6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Hitbox
   damage: 20
   layerMask:
     serializedVersion: 2

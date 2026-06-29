@@ -292,7 +292,7 @@ public class GunsManager : MonoBehaviour
 
     public void removeWeaponFromArm(BodySide armSide)
     {
-
+        if (!isArmed) return;
         if (currentWeapon.gunType == GunType.Pistol) {
             if (armSide == BodySide.Left) dropPistol(1);
             else dropPistol(0);

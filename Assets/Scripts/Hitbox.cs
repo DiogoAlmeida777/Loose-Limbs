@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
-    [SerializeField] private float damage = 20f;
-
+    [SerializeField] private float damage;
     [SerializeField] private LayerMask layerMask;
+
+    public void setDamage(float damage)
+    {
+        this.damage = damage;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +19,6 @@ public class Hitbox : MonoBehaviour
             if (hurtbox)
             {
                 hurtbox.OnHit(damage);
-                //Destroy(gameObject);
             }
         }
     }
