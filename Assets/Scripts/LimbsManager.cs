@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LimbsManager : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class LimbsManager : MonoBehaviour
 
     public int numberOfLegs { get; private set; }
 
+    public UnityEvent<BodySide> OnGrabbingArmLoss; 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,6 +56,8 @@ public class LimbsManager : MonoBehaviour
         {
             if (currentLeftArm != null)
             {
+                if (LeftArmCanGrab)
+                    OnGrabbingArmLoss?.Invoke(BodySide.Left);
                 currentLeftArm.SetActive(false);
                 limbDropper.drop(
                     currentLeftArm.GetComponent<Arm>().Stats,
@@ -60,6 +65,7 @@ public class LimbsManager : MonoBehaviour
                     currentLeftArm.transform.position,
                     currentLeftArm.transform.rotation
                     );
+
             }
             int index = (int)arm.type;
             currentLeftArm = L_Arms[index];
@@ -73,6 +79,8 @@ public class LimbsManager : MonoBehaviour
         {
             if (currentRightArm != null)
             {
+                if (RightArmCanGrab)
+                    OnGrabbingArmLoss?.Invoke(BodySide.Right);
                 currentRightArm.SetActive(false);
                 limbDropper.drop(
                     currentRightArm.GetComponent<Arm>().Stats,
@@ -80,6 +88,7 @@ public class LimbsManager : MonoBehaviour
                     currentRightArm.transform.position,
                     currentRightArm.transform.rotation
                     );
+
             }
             int index = (int)arm.type;
             currentRightArm = R_Arms[index];
@@ -155,12 +164,16 @@ public class LimbsManager : MonoBehaviour
     {
         if (bs == BodySide.Left)
         {
+            if(LeftArmCanGrab)
+                OnGrabbingArmLoss?.Invoke(BodySide.Left);
             currentLeftArm = null;
             foreach (Hurtbox hurtbox in leftArmHurtboxes)
                 hurtbox.setHealth(null);
         }
         else if (bs == BodySide.Right)
         {
+            if (RightArmCanGrab)
+                OnGrabbingArmLoss?.Invoke(BodySide.Right);
             currentRightArm = null;
             foreach (Hurtbox hurtbox in rightArmHurtboxes)
                 hurtbox.setHealth(null);

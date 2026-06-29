@@ -19,27 +19,29 @@ public class GunsManager : MonoBehaviour
 
     private bool isArmed = false;
 
+    [SerializeField] private GunDropper gunDropper;
+
     public UnityEvent<BodySide, float> OnPistolRigConfig;
 
     public UnityEvent<Transform> OnTwoHandedWeaponRigConfig;
 
     public UnityEvent<float> OnChangeRifleAimState;
 
+    public UnityEvent OnRestArms;
+
     private void Awake()
     {
         inputHandler = GetComponent<PlayerInputHandler>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnEnable()
     {
-        
+        inputHandler.Dropped += tossWeapon;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        inputHandler.Dropped -= tossWeapon;
     }
 
 
@@ -118,7 +120,7 @@ public class GunsManager : MonoBehaviour
             if (!leftArmAvailable && !rightArmAvailable) return false;
 
             if (isArmed)
-                getDisarmed();
+                dropAllWeapons();
 
             currentWeapon = targetSlot;
             isArmed = true;
@@ -159,9 +161,7 @@ public class GunsManager : MonoBehaviour
 
             // CASE 2: is unarmed or armed with different weapon type
             if (isArmed)
-                getDisarmed();
-
-
+                dropAllWeapons();
 
             currentWeapon = targetSlot;
             isArmed = true;
@@ -201,12 +201,106 @@ public class GunsManager : MonoBehaviour
         foreach (GameObject weaponGO in currentWeapon.slot)
             if (weaponGO) weaponGO.SetActive(false);
         isArmed = false;
+        OnRestArms?.Invoke();
         OnChangeRifleAimState?.Invoke(0f);
+    }
+
+    private void getDisarmed(int i)
+    {
+        currentWeapon.slot[i].SetActive(false);
+        isArmed = false;
+        foreach (GameObject weaponGO in currentWeapon.slot)
+            if (weaponGO.activeSelf)
+            {
+                isArmed = true;
+                break;
+            }
+
+        if (i == 1)
+        {
+            OnPistolRigConfig?.Invoke(BodySide.Left, 0f);
+        }
+        else
+        {
+            OnPistolRigConfig?.Invoke(BodySide.Right, 0f);
+        }
     }
 
     public void tossWeapon()
     {
+        if (!isArmed) return;
 
+        if (currentWeapon.gunType != GunType.Pistol)
+        {
+            dropTwoHandsGun();
+            return;
+        }
+
+        if (currentWeapon.slot[1].activeSelf)
+        {
+            dropPistol(1);
+        }
+        else if (currentWeapon.slot[0].activeSelf)
+        {
+            dropPistol(0);
+        }
+    }
+
+
+    private void dropAllWeapons()
+    {
+        if (!isArmed) return;
+
+        if (currentWeapon.gunType == GunType.Pistol)
+        {
+            if (currentWeapon.slot[1].activeSelf)
+                dropPistol(1);
+            if (currentWeapon.slot[0].activeSelf)
+                dropPistol(0);
+        }
+        else
+        {
+            dropTwoHandsGun();
+        }
+    }
+
+    private void dropTwoHandsGun()
+    {
+        Gun gun = currentWeapon.slot[0].GetComponent<Gun>();
+
+        gunDropper.drop(
+            currentWeapon.gunType,
+            gun.CurrentAmmo,
+            currentWeapon.slot[0].transform.position,
+            currentWeapon.slot[0].transform.rotation);
+
+        getDisarmed();
+    }
+
+    private void dropPistol(int i)
+    {
+        Gun gun = currentWeapon.slot[i].GetComponent<Gun>();
+
+        gunDropper.drop(
+            GunType.Pistol,
+            gun.CurrentAmmo,
+            currentWeapon.slot[i].transform.position,
+            currentWeapon.slot[i].transform.rotation);
+
+        getDisarmed(i);
+    }
+
+    public void removeWeaponFromArm(BodySide armSide)
+    {
+
+        if (currentWeapon.gunType == GunType.Pistol) {
+            if (armSide == BodySide.Left) dropPistol(1);
+            else dropPistol(0);
+        }
+        else
+        {
+            dropTwoHandsGun();
+        }
     }
 
 

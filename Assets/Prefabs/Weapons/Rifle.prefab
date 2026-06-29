@@ -5118,6 +5118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ea51be5184bd97646aef366d690f9066, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -5157,7 +5161,6 @@ MonoBehaviour:
   maxAmmo: 30
   shootPos: {fileID: 2137224202177851442}
   aimPos: {fileID: 0}
-  handlePos: {fileID: 0}
 --- !u!4 &6768197967455557562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ea51be5184bd97646aef366d690f9066, type: 3}

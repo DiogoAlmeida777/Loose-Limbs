@@ -25,11 +25,12 @@ public class Gun : MonoBehaviour, IInteractable
     private void Awake()
     {
         aimPos = GameObject.FindWithTag("AimPosition").transform;
+        currAmmo = maxAmmo;
     }
 
-    void Start()
+    public void Initialize(int remainingAmmo)
     {
-        currAmmo = maxAmmo;
+        currAmmo = remainingAmmo;
     }
 
     private void OnDisable()
