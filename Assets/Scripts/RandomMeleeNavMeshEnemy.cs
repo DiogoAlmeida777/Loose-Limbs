@@ -212,6 +212,6 @@ public class RandomMeleeNavMeshEnemy : MonoBehaviour
         if (animator == null || agent == null) return;
 
         bool isMoving = agent.velocity.magnitude > 0.1f && !agent.isStopped;
-        animator.SetBool("IsMoving", isMoving);
+        animator.SetBool("isMoving", isMoving);
     }
 }
