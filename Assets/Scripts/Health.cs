@@ -3,9 +3,13 @@ using UnityEngine.Events;
 
 public abstract class Health : MonoBehaviour
 {
-
     public float currentHealth { get; protected set; }
     public abstract float MaxHealth { get; }
+
+    public virtual void resetHealth()
+    {
+        currentHealth = MaxHealth;
+    }
 
     public virtual void getHeal(float hp)
     {
@@ -17,9 +21,10 @@ public abstract class Health : MonoBehaviour
         currentHealth -= damage;
 
         if (currentHealth <= 0)
+        {
             healthDepleted();
+        }
     }
 
     protected abstract void healthDepleted();
-
 }
