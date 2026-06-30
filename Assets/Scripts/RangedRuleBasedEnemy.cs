@@ -40,13 +40,12 @@ public class RangedRuleBasedEnemy : MonoBehaviour
             }
         }
     }
-
     private void Update()
     {
         if (player == null || agent == null) return;
 
-        shootTimer -= Time.deltaTime;
-        strafeTimer -= Time.deltaTime;
+        shootTimer = Mathf.Max(0f, shootTimer - Time.deltaTime);
+        strafeTimer = Mathf.Max(0f, strafeTimer - Time.deltaTime);
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -129,28 +128,49 @@ public class RangedRuleBasedEnemy : MonoBehaviour
 
     private void TryShoot(float distanceToPlayer)
     {
+        if (shootTimer > 0f)
+        {
+            return;
+        }
 
-        if (shootTimer > 0f) return;
-        if (projectilePrefab == null) return;
-        if (shootPoint == null) return;
-        if (distanceToPlayer > detectionRange) return;
-        if (!HasLineOfSight()) return;
+        if (projectilePrefab == null)
+        {
+            Debug.LogError("Cannot shoot: projectilePrefab is null");
+            return;
+        }
 
-        shootTimer = shootCooldown;
+        if (shootPoint == null)
+        {
+            Debug.LogError("Cannot shoot: shootPoint is null");
+            return;
+        }
+
+        if (distanceToPlayer > detectionRange)
+        {
+            Debug.Log("Cannot shoot: player too far");
+            return;
+        }
+
+        if (!HasLineOfSight())
+        {
+            return;
+        }
 
         Vector3 targetPosition = player.position + Vector3.up * aimHeight;
         Vector3 direction = targetPosition - shootPoint.position;
-
         Quaternion rotation = Quaternion.LookRotation(direction.normalized);
 
-        Instantiate(projectilePrefab, shootPoint.position, rotation);
+        Debug.Log("Spawning projectile from " + shootPoint.position);
+
+        Vector3 spawnPosition = shootPoint.position + direction.normalized * 0.5f;
+        Instantiate(projectilePrefab, spawnPosition, rotation);
+
+        shootTimer = shootCooldown;
 
         if (animator != null)
         {
             animator.SetTrigger("Attack");
         }
-
-        Debug.Log($"{gameObject.name} shot at player.");
     }
 
     private void LookAtPlayer()
