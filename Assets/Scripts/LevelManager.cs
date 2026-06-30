@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
             return;
         }
         Instance = this;
+        Debug.Log("LevelManager Instance set: " + Instance);
     }
 
     // Call this when the player dies - wire to BodyHealth.OnDeath in Inspector

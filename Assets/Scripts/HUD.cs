@@ -25,81 +25,126 @@ public class HUD : MonoBehaviour
     [SerializeField] private Color damagedColor = Color.red;
     [SerializeField] private Color destroyedColor = Color.gray;
 
-    void Update()
+    private LimbHealth currentLeftArmHealth;
+    private LimbHealth currentRightArmHealth;
+    private LimbHealth currentLeftLegHealth;
+    private LimbHealth currentRightLegHealth;
+
+    private void OnEnable()
     {
-        if (bodyHealth == null) return;
+        if (bodyHealth != null)
+        {
+            bodyHealth.OnHealthChanged.AddListener(OnBodyHealthChanged);
+        }
 
-        float current = bodyHealth.currentHealth;
-        float max = bodyHealth.MaxHealth;
-        UpdateHealthBar(current, max);
-
-        // Head and torso share the same HP pool as the main health bar
-        UpdateDiagramPiece(headImage, current, max);
-        UpdateDiagramPiece(torsoImage, current, max);
-
-        // Each swappable limb has its own LimbHealth, fetched live via LimbsManager
-        UpdateLimbPiece(leftArmImage, limbsManager.currentLeftArm);
-        UpdateLimbPiece(rightArmImage, limbsManager.currentRightArm);
-        UpdateLimbPiece(leftLegImage, limbsManager.currentLeftLeg);
-        UpdateLimbPiece(rightLegImage, limbsManager.currentRightLeg);
+        if (limbsManager != null)
+            limbsManager.OnLimbChanged.AddListener(OnLimbChanged);
     }
 
-    void UpdateHealthBar(float current, float max)
+    private void Start()
+    {
+        if (bodyHealth != null)
+            OnBodyHealthChanged(bodyHealth.currentHealth, bodyHealth.MaxHealth);
+    }
+
+    private void OnDisable()
+    {
+        if (bodyHealth != null)
+            bodyHealth.OnHealthChanged.RemoveListener(OnBodyHealthChanged);
+
+        if (limbsManager != null)
+            limbsManager.OnLimbChanged.RemoveListener(OnLimbChanged);
+
+        UnsubscribeLimb(ref currentLeftArmHealth);
+        UnsubscribeLimb(ref currentRightArmHealth);
+        UnsubscribeLimb(ref currentLeftLegHealth);
+        UnsubscribeLimb(ref currentRightLegHealth);
+    }
+
+    private void OnBodyHealthChanged(float current, float max)
     {
         float fillAmount = max > 0 ? current / max : 0f;
         healthBarFill.fillAmount = Mathf.Clamp01(fillAmount);
         healthText.text = $"{Mathf.CeilToInt(current)} / {Mathf.CeilToInt(max)}";
+
+        UpdateDiagramPiece(headImage, current, max);
+        UpdateDiagramPiece(torsoImage, current, max);
     }
 
-    // Blends healthyColor -> damagedColor -> destroyedColor as t goes from 1 to 0.
-    // Above the midpoint: healthy to damaged. Below it: damaged to destroyed (gray at exactly 0).
-    Color GetHealthColor(float t)
+    private void OnLimbChanged(BodySide side, bool isArm, GameObject newLimbObject)
+    {
+        if (isArm)
+        {
+            if (side == BodySide.Left)
+                SwapLimbSubscription(ref currentLeftArmHealth, newLimbObject, leftArmImage);
+            else
+                SwapLimbSubscription(ref currentRightArmHealth, newLimbObject, rightArmImage);
+        }
+        else
+        {
+            if (side == BodySide.Left)
+                SwapLimbSubscription(ref currentLeftLegHealth, newLimbObject, leftLegImage);
+            else
+                SwapLimbSubscription(ref currentRightLegHealth, newLimbObject, rightLegImage);
+        }
+    }
+
+    private void SwapLimbSubscription(ref LimbHealth cachedHealth, GameObject newLimbObject, Image limbImage)
+    {
+        UnsubscribeLimb(ref cachedHealth);
+
+        if (newLimbObject == null)
+        {
+            if (limbImage != null)
+                limbImage.color = destroyedColor;
+            return;
+        }
+
+        LimbHealth newHealth = newLimbObject.GetComponent<LimbHealth>();
+        if (newHealth == null)
+        {
+            if (limbImage != null)
+                limbImage.color = destroyedColor;
+            return;
+        }
+
+        cachedHealth = newHealth;
+
+        cachedHealth.OnHealthChanged.AddListener((current, max) => UpdateDiagramPiece(limbImage, current, max));
+
+        UpdateDiagramPiece(limbImage, newHealth.currentHealth, newHealth.MaxHealth);
+    }
+
+    private void UnsubscribeLimb(ref LimbHealth cachedHealth)
+    {
+        if (cachedHealth != null)
+        {
+            cachedHealth.OnHealthChanged.RemoveAllListeners();
+            cachedHealth = null;
+        }
+    }
+
+    private Color GetHealthColor(float t)
     {
         t = Mathf.Clamp01(t);
         const float midpoint = 0.5f;
 
         if (t >= midpoint)
         {
-            float localT = (t - midpoint) / (1f - midpoint); // 0..1 across the upper half
+            float localT = (t - midpoint) / (1f - midpoint);
             return Color.Lerp(damagedColor, healthyColor, localT);
         }
         else
         {
-            float localT = t / midpoint; // 0..1 across the lower half
+            float localT = t / midpoint;
             return Color.Lerp(destroyedColor, damagedColor, localT);
         }
     }
 
-    // Used for head/torso, which always exist and share bodyHealth's values directly
-    void UpdateDiagramPiece(Image image, float current, float max)
+    private void UpdateDiagramPiece(Image image, float current, float max)
     {
         if (image == null) return;
-
         float t = max > 0 ? current / max : 0f;
-        image.color = GetHealthColor(t);
-    }
-
-    // Used for swappable limbs, which can be null (destroyed/unequipped)
-    void UpdateLimbPiece(Image image, GameObject limbObject)
-    {
-        if (image == null) return;
-
-        if (limbObject == null)
-        {
-            image.color = destroyedColor;
-            return;
-        }
-
-        LimbHealth limbHealth = limbObject.GetComponent<LimbHealth>();
-        if (limbHealth == null)
-        {
-            image.color = destroyedColor;
-            return;
-        }
-
-        float t = limbHealth.MaxHealth > 0
-            ? limbHealth.currentHealth / limbHealth.MaxHealth
-            : 0f;
         image.color = GetHealthColor(t);
     }
 }

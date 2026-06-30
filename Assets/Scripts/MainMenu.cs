@@ -3,9 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public void TitleScreen()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("Level1");
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 
     public void QuitGame()

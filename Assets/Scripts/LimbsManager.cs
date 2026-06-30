@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LimbsManager : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class LimbsManager : MonoBehaviour
     #endregion
 
 
+    public UnityEvent<BodySide, bool, GameObject> OnLimbChanged = new UnityEvent<BodySide, bool, GameObject>();
+
     public int numberOfLegs { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,8 +60,10 @@ public class LimbsManager : MonoBehaviour
             int index = (int)arm.type;
             currentLeftArm = L_Arms[index];
             currentLeftArm.SetActive(true);
-            foreach(Hurtbox hurtbox in leftArmHurtboxes)
+            foreach (Hurtbox hurtbox in leftArmHurtboxes)
                 hurtbox.setHealth(currentLeftArm.GetComponent<Health>());
+
+            OnLimbChanged?.Invoke(BodySide.Left, true, currentLeftArm);
         }
         else if (arm.bodySide == BodySide.Right)
         {
@@ -71,6 +76,8 @@ public class LimbsManager : MonoBehaviour
             currentRightArm.SetActive(true);
             foreach (Hurtbox hurtbox in rightArmHurtboxes)
                 hurtbox.setHealth(currentRightArm.GetComponent<Health>());
+
+            OnLimbChanged?.Invoke(BodySide.Right, true, currentRightArm);
         }
 
     }
@@ -92,6 +99,8 @@ public class LimbsManager : MonoBehaviour
             leftLegStats = leg;
             foreach (Hurtbox hurtbox in leftLegHurtboxes)
                 hurtbox.setHealth(currentLeftLeg.GetComponent<Health>());
+
+            OnLimbChanged?.Invoke(BodySide.Left, false, currentLeftLeg);
         }
         else if (leg.bodySide == BodySide.Right)
         {
@@ -108,6 +117,8 @@ public class LimbsManager : MonoBehaviour
             rightLegStats = leg;
             foreach (Hurtbox hurtbox in rightLegHurtboxes)
                 hurtbox.setHealth(currentRightLeg.GetComponent<Health>());
+
+            OnLimbChanged?.Invoke(BodySide.Right, false, currentRightLeg);
         }
     }
 
@@ -134,6 +145,8 @@ public class LimbsManager : MonoBehaviour
             foreach (Hurtbox hurtbox in rightArmHurtboxes)
                 hurtbox.setHealth(null);
         }
+
+        OnLimbChanged?.Invoke(bs, true, null);
     }
 
     private void loseLeg(BodySide bs)
@@ -153,6 +166,7 @@ public class LimbsManager : MonoBehaviour
                 hurtbox.setHealth(null);
         }
         numberOfLegs -= 1;
+        OnLimbChanged?.Invoke(bs, false, null);
     }
 
 
@@ -179,7 +193,7 @@ public class LimbsManager : MonoBehaviour
     {
         int numberOfArms = 0;
 
-        if (armCanGrab(currentLeftArm)) 
+        if (armCanGrab(currentLeftArm))
             numberOfArms++;
 
         if (armCanGrab(currentRightArm))
@@ -192,9 +206,9 @@ public class LimbsManager : MonoBehaviour
     public bool RightArmCanGrab => armCanGrab(currentRightArm);
 
 
-    public float MoveSpeed => 
-        (leftLegStats != null? leftLegStats.moveSpeed : 0) + 
-        (rightLegStats != null? rightLegStats.moveSpeed : 0);
+    public float MoveSpeed =>
+        (leftLegStats != null ? leftLegStats.moveSpeed : 0) +
+        (rightLegStats != null ? rightLegStats.moveSpeed : 0);
 
     public float SprintBuff =>
         1 +
@@ -208,5 +222,5 @@ public class LimbsManager : MonoBehaviour
     public float Stamina =>
         (leftLegStats != null ? leftLegStats.stamina : 0) +
         (rightLegStats != null ? rightLegStats.stamina : 0);
- 
+
 }
