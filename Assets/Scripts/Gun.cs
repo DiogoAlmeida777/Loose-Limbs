@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour, IInteractable
     [SerializeField] private int maxAmmo;
     [SerializeField] private Transform shootPos;
     [SerializeField] private Transform aimPos;
+    [SerializeField] private AudioSource gunshotAudio;
 
     public Transform HandlePoint => gameObject.transform.Find("handlePos");
     public int CurrentAmmo => currAmmo;
@@ -57,6 +58,7 @@ public class Gun : MonoBehaviour, IInteractable
             shootDir = shootPos.rotation;
         Instantiate(bulletPrefab, shootPos.position, shootDir);
         muzzleFlash.Play();
+        gunshotAudio.Play();
         currAmmo--;
     }
 

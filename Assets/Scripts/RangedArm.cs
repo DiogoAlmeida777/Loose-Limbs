@@ -8,6 +8,7 @@ public class RangedArm : Arm
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform handPos;
     [SerializeField] private Transform aimPos;
+    [SerializeField] private AudioSource shotSound;
     public UnityEvent<BodySide,float> OnRigConfigChange;
 
     private void Start()
@@ -23,6 +24,7 @@ public class RangedArm : Arm
     {
        Quaternion rotation = Quaternion.LookRotation(aimPos.position-handPos.position);
        GameObject projectile = Instantiate(projectilePrefab,handPos.position,rotation);
+       shotSound.Play();
     }
 
     private void OnDisable()

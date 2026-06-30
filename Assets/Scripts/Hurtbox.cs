@@ -6,6 +6,7 @@ public class Hurtbox : MonoBehaviour
 
     public void OnHit(float damage)
     {
+        Debug.Log("Got Hit!");
         if(health)
             health.takeDamage(damage);
     }
