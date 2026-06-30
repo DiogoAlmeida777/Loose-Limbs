@@ -4,6 +4,7 @@ public class Hitbox : MonoBehaviour
 {
     [SerializeField] private float damage;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private AudioSource hitSound; 
 
     public void setDamage(float damage)
     {
@@ -19,6 +20,7 @@ public class Hitbox : MonoBehaviour
             if (hurtbox)
             {
                 hurtbox.OnHit(damage);
+                hitSound.Play();
             }
         }
     }
