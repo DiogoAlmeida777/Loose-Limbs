@@ -15,6 +15,12 @@ public class BossAgent : Agent
 
     [Header("Training")]
     [SerializeField] private float maxDistance = 25f;
+    [SerializeField] private TrainingPlayerBot trainingPlayerBot;
+
+    [Header("Episode")]
+    [SerializeField] private float episodeDuration = 30f;
+
+    private float episodeTimer;
 
     private Vector3 startPosition;
     private Quaternion startRotation;
@@ -24,6 +30,8 @@ public class BossAgent : Agent
 
     private float previousBossHealth;
     private float previousPlayerHealth;
+
+
 
     private NavMeshAgent navMeshAgent;
 
@@ -63,13 +71,28 @@ public class BossAgent : Agent
             {
                 playerHealth = player.GetComponent<Health>();
             }
+
+            if (trainingPlayerBot == null)
+            {
+                trainingPlayerBot = player.GetComponent<TrainingPlayerBot>();
+            }
         }
     }
 
     public override void OnEpisodeBegin()
     {
+        episodeTimer = 0f;
+
         ResetBoss();
-        // ResetPlayer(); // Só ativa isto na cena de treino se quiseres resetar o player também.
+
+        if (trainingPlayerBot != null)
+        {
+            trainingPlayerBot.ResetTrainingPlayer();
+        }
+        else
+        {
+            ResetPlayer();
+        }
 
         if (bossHealth != null)
         {
@@ -214,6 +237,14 @@ public class BossAgent : Agent
             {
                 AddReward(-0.01f);
             }
+        }
+
+        episodeTimer += Time.deltaTime;
+
+        if (episodeTimer >= episodeDuration)
+        {
+            AddReward(-1f);
+            EndEpisode();
         }
     }
 
