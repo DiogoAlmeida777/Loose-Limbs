@@ -134,7 +134,7 @@ MonoBehaviour:
     m_Bits: 256
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   lifeTime: 5
 --- !u!54 &4727948484041319181
 Rigidbody:
