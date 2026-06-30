@@ -102,7 +102,7 @@ MonoBehaviour:
   damage: 20
   targetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 311

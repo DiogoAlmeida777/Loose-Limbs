@@ -129,9 +129,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   speed: 100
   damage: 20
-  layerMask:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  lifeTime: 5
 --- !u!54 &-3979782529361193202
 Rigidbody:
   m_ObjectHideFlags: 0
