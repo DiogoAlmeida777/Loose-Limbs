@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LimbProp
   limbStats: {fileID: 11400000, guid: dc3efc9a3afdbbd4dba89f92ce5f1d68, type: 2}
+  remainingHealth: 0
 --- !u!54 &1993499249709367671
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &4078225107168382170
 GameObject:
   m_ObjectHideFlags: 0
