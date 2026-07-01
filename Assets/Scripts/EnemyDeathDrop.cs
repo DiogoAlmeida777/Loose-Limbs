@@ -4,12 +4,14 @@ using UnityEngine.AI;
 
 public class EnemyDeathDrop : MonoBehaviour
 {
-    [Header("Drops")]
+    [Header("Limb Drops")]
     [SerializeField] private GameObject[] limbDropPrefabs;
     [SerializeField] private Transform dropPoint;
+    [SerializeField] private float dropSpreadRadius = 1.2f;
 
     [Header("Death FX")]
     [SerializeField] private GameObject deathEffectPrefab;
+    [SerializeField] private Transform deathEffectPoint;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -27,50 +29,104 @@ public class EnemyDeathDrop : MonoBehaviour
 
     private IEnumerator DieRoutine()
     {
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        if (agent != null)
-        {
-            agent.isStopped = true;
-            agent.enabled = false;
-        }
+        StopEnemyImmediately();
 
-        RandomMeleeNavMeshEnemy enemyAI = GetComponent<RandomMeleeNavMeshEnemy>();
-        if (enemyAI != null)
-        {
-            enemyAI.enabled = false;
-        }
+        Vector3 effectPosition = deathEffectPoint != null
+            ? deathEffectPoint.position
+            : transform.position + Vector3.up * 1.1f;
 
-        Collider[] colliders = GetComponentsInChildren<Collider>();
-        foreach (Collider col in colliders)
+        Vector3 dropPosition = dropPoint != null
+            ? dropPoint.position
+            : transform.position;
+
+        if (deathEffectPrefab != null)
         {
-            col.enabled = false;
+            Instantiate(deathEffectPrefab, effectPosition, Quaternion.identity);
         }
 
         if (animator != null)
         {
+            animator.applyRootMotion = false;
             animator.SetTrigger("Die");
-        }
-
-        Vector3 spawnPosition = dropPoint != null ? dropPoint.position : transform.position;
-
-        if (deathEffectPrefab != null)
-        {
-            Instantiate(deathEffectPrefab, spawnPosition, Quaternion.identity);
         }
 
         yield return new WaitForSeconds(destroyDelay);
 
-        if (limbDropPrefabs != null && limbDropPrefabs.Length > 0)
-        {
-            int randomIndex = Random.Range(0, limbDropPrefabs.Length);
-            GameObject selectedDrop = limbDropPrefabs[randomIndex];
-
-            if (selectedDrop != null)
-            {
-                Instantiate(selectedDrop, spawnPosition, Quaternion.identity);
-            }
-        }
+        DropLimbs(dropPosition);
 
         Destroy(gameObject);
+    }
+
+    private void StopEnemyImmediately()
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+
+        if (agent != null && agent.enabled)
+        {
+            if (agent.isOnNavMesh)
+            {
+                agent.isStopped = true;
+                agent.ResetPath();
+            }
+
+            agent.velocity = Vector3.zero;
+            agent.enabled = false;
+        }
+
+        RangedRuleBasedEnemy ranged = GetComponent<RangedRuleBasedEnemy>();
+
+        if (ranged != null)
+        {
+            ranged.enabled = false;
+        }
+
+        RandomMeleeNavMeshEnemy melee = GetComponent<RandomMeleeNavMeshEnemy>();
+
+        if (melee != null)
+        {
+            melee.enabled = false;
+        }
+
+        BossRuleBasedEnemy boss = GetComponent<BossRuleBasedEnemy>();
+
+        if (boss != null)
+        {
+            boss.enabled = false;
+        }
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.isKinematic = true;
+        }
+    }
+
+    private void DropLimbs(Vector3 centerPosition)
+    {
+        if (limbDropPrefabs == null) return;
+
+        foreach (GameObject limbPrefab in limbDropPrefabs)
+        {
+            if (limbPrefab == null) continue;
+
+            Vector2 randomOffset = Random.insideUnitCircle * dropSpreadRadius;
+
+            Vector3 spawnPosition = centerPosition + new Vector3(
+                randomOffset.x,
+                0.3f,
+                randomOffset.y
+            );
+
+            Quaternion randomRotation = Quaternion.Euler(
+                Random.Range(0f, 30f),
+                Random.Range(0f, 360f),
+                Random.Range(0f, 30f)
+            );
+
+            Instantiate(limbPrefab, spawnPosition, randomRotation);
+        }
     }
 }

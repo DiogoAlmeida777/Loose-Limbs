@@ -136,6 +136,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   lifeTime: 5
+  hitEffectPrefab: {fileID: 3883413873295714934, guid: 8091a32a049a4ce43a33a5303e999dae, type: 3}
+  hitEffectForwardOffset: 0.05
 --- !u!54 &-3979782529361193202
 Rigidbody:
   m_ObjectHideFlags: 0

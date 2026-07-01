@@ -8,6 +8,10 @@ public class Projectile : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayer;
     [SerializeField] private float lifeTime = 5f;
 
+    [Header("Hit FX")]
+    [SerializeField] private GameObject hitEffectPrefab;
+    [SerializeField] private float hitEffectForwardOffset = 0.05f;
+
     private void Start()
     {
         Destroy(gameObject, lifeTime);
@@ -20,16 +24,17 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{gameObject.name} touched {other.gameObject.name} on layer {LayerMask.LayerToName(other.gameObject.layer)}");
-
         if (IsInLayerMask(other.gameObject.layer, targetLayer))
         {
+            Vector3 hitPosition = other.ClosestPoint(transform.position);
+
+            SpawnHitEffect(hitPosition);
+
             Hurtbox hurtbox = other.GetComponentInParent<Hurtbox>();
 
             if (hurtbox != null)
             {
                 hurtbox.OnHit(damage);
-                Debug.Log($"{gameObject.name} damaged {hurtbox.gameObject.name} for {damage}");
             }
 
             Destroy(gameObject);
@@ -38,12 +43,20 @@ public class Projectile : MonoBehaviour
 
         if (IsInLayerMask(other.gameObject.layer, obstacleLayer))
         {
-            Debug.Log($"{gameObject.name} hit obstacle {other.gameObject.name}");
             Destroy(gameObject);
             return;
         }
+    }
 
-        // Ignore everything else, including the enemy who shot it.
+    private void SpawnHitEffect(Vector3 hitPosition)
+    {
+        if (hitEffectPrefab == null) return;
+
+        Quaternion rotation = Quaternion.LookRotation(-transform.forward);
+
+        Vector3 spawnPosition = hitPosition + (-transform.forward * hitEffectForwardOffset);
+
+        Instantiate(hitEffectPrefab, spawnPosition, rotation);
     }
 
     private bool IsInLayerMask(int layer, LayerMask mask)

@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 7396645800070352481}
   - component: {fileID: -8585091582168434273}
   m_Layer: 0
-  m_Name: RifleBulletPrefab
+  m_Name: EnemyRifleBulletPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,14 +269,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e16b3fed6ffca6499150bb836fb1d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  speed: 100
-  damage: 20
+  speed: 80
+  damage: 10
   targetLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 1591
   lifeTime: 5
   hitEffectPrefab: {fileID: 3883413873295714934, guid: 8091a32a049a4ce43a33a5303e999dae, type: 3}
   hitEffectForwardOffset: 0.05
