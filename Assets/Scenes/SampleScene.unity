@@ -7283,7 +7283,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -30676,22 +30676,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1744704699622866769, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
-      propertyPath: deathEffectPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Melee_Random
-      objectReference: {fileID: 0}
-    - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3416520085177613564, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.0219984
-      objectReference: {fileID: 0}
     - target: {fileID: 46700084173450252, guid: c71d7002ab4d03242aba95686fc6ad34, type: 3}
       propertyPath: 
       value: 
@@ -30772,6 +30756,22 @@ PrefabInstance:
       propertyPath: 'camerasToDisable.Array.data[1]'
       value: 
       objectReference: {fileID: 1453144327}
+    - target: {fileID: 1744704699622866769, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
+      propertyPath: deathEffectPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Random
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416520085177613564, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.0219984
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
