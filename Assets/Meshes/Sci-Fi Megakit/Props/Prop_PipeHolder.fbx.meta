@@ -3,7 +3,22 @@ guid: fc029ed9acafdc04eaa21714a1ee5b79
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_PaddedWall
+    second: {fileID: 2100000, guid: a97ffe82156d4c749827e8aae8d6447b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Trim_01
+    second: {fileID: 2100000, guid: 9e2b22b72a158a2459462ea16f978e44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Trim_02
+    second: {fileID: 2100000, guid: 407ad95b12ee2864f89bd92e2e9244b6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
