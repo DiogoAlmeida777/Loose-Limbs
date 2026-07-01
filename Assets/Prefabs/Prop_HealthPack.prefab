@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2976192483983862383
+--- !u!1001 &7138467928794040059
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 368a59f07bf69aa4f82d971605b6e251, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 67.04927
+      value: -6.841268
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 368a59f07bf69aa4f82d971605b6e251, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.749977
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 368a59f07bf69aa4f82d971605b6e251, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.0736096
+      value: -7.167339
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 368a59f07bf69aa4f82d971605b6e251, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58,23 +58,23 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 368a59f07bf69aa4f82d971605b6e251, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4848553484861745297}
+      addedObject: {fileID: -5326764787321101128}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 368a59f07bf69aa4f82d971605b6e251, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8301541266387319652}
+      addedObject: {fileID: -2913041353452451327}
   m_SourcePrefab: {fileID: 100100000, guid: 368a59f07bf69aa4f82d971605b6e251, type: 3}
---- !u!1 &2705791026500900670 stripped
+--- !u!1 &8057369725967317930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 368a59f07bf69aa4f82d971605b6e251, type: 3}
-  m_PrefabInstance: {fileID: 2976192483983862383}
+  m_PrefabInstance: {fileID: 7138467928794040059}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-4848553484861745297
+--- !u!114 &-5326764787321101128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2705791026500900670}
+  m_GameObject: {fileID: 8057369725967317930}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 637c1195fb90988428af388addc789ae, type: 3}
@@ -82,13 +82,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthPack
   healAmount: 50
   playerTag: Player
---- !u!65 &-8301541266387319652
+--- !u!65 &-2913041353452451327
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2705791026500900670}
+  m_GameObject: {fileID: 8057369725967317930}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

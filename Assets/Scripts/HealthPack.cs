@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealthPack : MonoBehaviour
+public class MedpackPickup : MonoBehaviour
 {
     [SerializeField] private float healAmount = 50f;
     [SerializeField] private string playerTag = "Player";
