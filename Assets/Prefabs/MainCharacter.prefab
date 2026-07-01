@@ -9139,7 +9139,7 @@ MonoBehaviour:
   aimPosition: {fileID: 0}
   aimLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 3841
   interactDistance: 4000
 --- !u!114 &658873709224275009
 MonoBehaviour:
