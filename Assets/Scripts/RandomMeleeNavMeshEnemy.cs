@@ -15,6 +15,7 @@ public class RandomMeleeNavMeshEnemy : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Animator animator;
+    [SerializeField] private DeltaTransform dt;
 
     [Header("Movement")]
     [SerializeField] private float detectionRange = 12f;
@@ -210,6 +211,9 @@ public class RandomMeleeNavMeshEnemy : MonoBehaviour
     private void UpdateAnimation()
     {
         if (animator == null || agent == null) return;
+
+        animator.SetFloat("fwdSpeed", dt.fwdSpeed());
+        animator.SetFloat("sideSpeed", dt.sideSpeed());
 
         bool isMoving = agent.velocity.magnitude > 0.1f && !agent.isStopped;
         animator.SetBool("isMoving", isMoving);

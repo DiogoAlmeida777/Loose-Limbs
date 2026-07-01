@@ -220,7 +220,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8689597319084937479}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93c320762a97c9b44a89918547e488b6, type: 3}
   m_Name: 
@@ -239,7 +239,7 @@ MonoBehaviour:
   meleeDamage: 20
   playerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   shootCooldown: 2.5
   aimHeight: 1.2
   obstacleLayer:
@@ -264,6 +264,7 @@ MonoBehaviour:
   dropPoint: {fileID: 2614296446833692448}
   dropSpreadRadius: 1.2
   deathEffectPrefab: {fileID: 0}
+  deathEffectPoint: {fileID: 0}
   animator: {fileID: 0}
   destroyDelay: 2
 --- !u!114 &7298767563776223975
@@ -279,6 +280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hurtbox
   health: {fileID: 475575601423588153}
+  OnGettingHurt:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7017770616518079957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 95450259988899018, guid: e10e470cb8ac58346ab2adcf73cc6e93, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 95450259988899018, guid: e10e470cb8ac58346ab2adcf73cc6e93, type: 3}
       propertyPath: m_CullingMode

@@ -8,6 +8,7 @@ public class RangedRuleBasedEnemy : MonoBehaviour
     [SerializeField] private Transform shootPoint;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Animator animator;
+    [SerializeField] private DeltaTransform dt;
 
     [Header("Movement")]
     [SerializeField] private float detectionRange = 18f;
@@ -193,10 +194,10 @@ public class RangedRuleBasedEnemy : MonoBehaviour
     {
         if (animator == null || agent == null) return;
 
-        bool isMoving = agent.velocity.magnitude > 0.1f && !agent.isStopped;
+        //bool isMoving = agent.velocity.magnitude > 0.1f && !agent.isStopped;
 
-        // Only use this if your Animator has a parameter called IsMoving.
-        animator.SetBool("IsMoving", isMoving);
+        animator.SetFloat("fwdSpeed", dt.fwdSpeed());
+        animator.SetFloat("sideSpeed", dt.sideSpeed());
     }
 
     private bool HasLineOfSight()

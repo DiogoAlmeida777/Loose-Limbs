@@ -6,8 +6,10 @@ public class GrabbingArm : MeleeArm
 
     protected override void Update()
     {
-        if (gun)
+        
+        if (gun && gun.gameObject.activeSelf == true)
         {
+
             if (playerInputHandler.IsLeftAttacking && stats.bodySide == BodySide.Left)
             {
                 if(gun.getGunType() == GunType.Pistol)
