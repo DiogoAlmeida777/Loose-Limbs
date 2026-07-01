@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8210988134711300266}
   - component: {fileID: 2603568301167719442}
   - component: {fileID: 3483806707465281119}
-  - component: {fileID: 4162314505623470323}
   - component: {fileID: 1744704699622866769}
   - component: {fileID: 1695613617122061955}
   m_Layer: 8
@@ -75,7 +74,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959614eb5647fb249b35d618520756d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BodyHealth
-  maxHealth: 0
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  maxHealth: 100
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -140,19 +142,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &4162314505623470323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2286046810364386904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adf2ce8cd8469c3488b4d5fd06fd3b85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamageTester
-  damage: 1
 --- !u!114 &1744704699622866769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,9 +155,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathDrop
   limbDropPrefabs:
-  - {fileID: 1984982008554711702, guid: 0320d4887ef4b9143a0d93114f663ce9, type: 3}
+  - {fileID: 8877231339061944929, guid: 7b62f4fb6f2b3ee48af635feb89e663d, type: 3}
+  - {fileID: 1296992191786165143, guid: ce97bdd1dd1bc2c4689de00c3bc93c73, type: 3}
+  - {fileID: 7578029507535771826, guid: 7c9872da5a1c0a54e8747676a2e83d28, type: 3}
+  - {fileID: 656434124081009781, guid: 07d7b4dcbe0f8634e96c6023997b6ea1, type: 3}
   dropPoint: {fileID: 5923606178900416340}
+  dropSpreadRadius: 1.2
   deathEffectPrefab: {fileID: 0}
+  deathEffectPoint: {fileID: 0}
   animator: {fileID: 8516048244321592500}
   destroyDelay: 2
 --- !u!114 &1695613617122061955

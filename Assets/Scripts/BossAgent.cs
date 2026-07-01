@@ -20,6 +20,9 @@ public class BossAgent : Agent
     [Header("Episode")]
     [SerializeField] private float episodeDuration = 30f;
 
+    [Header("Mode")]
+    [SerializeField] private bool trainingMode = false;
+
     private float episodeTimer;
 
     private Vector3 startPosition;
@@ -81,6 +84,12 @@ public class BossAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+
+        if (!trainingMode)
+        {
+            return;
+        }
+
         episodeTimer = 0f;
 
         ResetBoss();
@@ -183,7 +192,12 @@ public class BossAgent : Agent
         }
 
         RewardHealthChanges();
-        CheckEpisodeEnd();
+
+        if (trainingMode)
+        {
+            RewardHealthChanges();
+            CheckEpisodeEnd();
+        }
     }
 
     private void RewardHealthChanges()

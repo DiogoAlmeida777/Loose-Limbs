@@ -236,7 +236,6 @@ GameObject:
   - component: {fileID: 6042988412275229814}
   - component: {fileID: 6083007503457787758}
   - component: {fileID: 6542120723765080889}
-  - component: {fileID: 8368762300668242300}
   - component: {fileID: 360635031820301508}
   - component: {fileID: 9222064184511431945}
   - component: {fileID: 2600299510903835086}
@@ -308,7 +307,7 @@ MonoBehaviour:
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
-  maxHealth: 0
+  maxHealth: 60
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -361,7 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RangedRuleBasedEnemy
   player: {fileID: 0}
   shootPoint: {fileID: 9056092431948818572}
-  projectilePrefab: {fileID: 5323615121291610446, guid: b3186c2ddbe8a60488474f7cdcfe9e90, type: 3}
+  projectilePrefab: {fileID: 6640113733073702431, guid: 11cc15420d049b34ea545e327d78a498, type: 3}
   animator: {fileID: 118626978902155468}
   detectionRange: 18
   preferredDistance: 8
@@ -373,19 +372,6 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 311
---- !u!114 &8368762300668242300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639585578882593324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adf2ce8cd8469c3488b4d5fd06fd3b85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamageTester
-  damage: 1
 --- !u!114 &360635031820301508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,9 +385,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathDrop
   limbDropPrefabs:
-  - {fileID: 1984982008554711702, guid: 0320d4887ef4b9143a0d93114f663ce9, type: 3}
+  - {fileID: 2595399955813993331, guid: 99be01505f0801c4d8f4992861fcf1a2, type: 3}
+  - {fileID: 4879034451889838796, guid: 87cb6de10baaff24984f671dff134075, type: 3}
+  - {fileID: 3565430042443184651, guid: 63136db2400e2204db4d981d1ee6c931, type: 3}
+  - {fileID: 660761541832717717, guid: 97b305268f329d2458b7e45380c1e490, type: 3}
   dropPoint: {fileID: 4071309460135198774}
+  dropSpreadRadius: 1.2
   deathEffectPrefab: {fileID: 0}
+  deathEffectPoint: {fileID: 0}
   animator: {fileID: 0}
   destroyDelay: 2
 --- !u!114 &9222064184511431945
