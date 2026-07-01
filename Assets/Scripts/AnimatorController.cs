@@ -23,6 +23,7 @@ public class AnimatorController : MonoBehaviour
     public string isDeadString = "isDead";
     public string hitCeilingString = "hitCeiling";
     public string numOfLegsString = "NumberOfLegs";
+    public string isOnLeftFootString = "isOnLeftFoot";
     #endregion
 
     #region Animation Parameters Hashes
@@ -36,6 +37,7 @@ public class AnimatorController : MonoBehaviour
     public int isDeadHash { get; private set; }
     public int hitCeilingHash { get; private set; }
     public int numOfLegsHash { get; private set; }
+    public int isOnLeftFootHash { get; private set; } 
     #endregion
 
     public int rifleAimingLayer;
@@ -72,6 +74,7 @@ public class AnimatorController : MonoBehaviour
         isDeadHash = Animator.StringToHash(isDeadString);
         hitCeilingHash = Animator.StringToHash(hitCeilingString);
         numOfLegsHash = Animator.StringToHash(numOfLegsString);
+        isOnLeftFootHash = Animator.StringToHash(isOnLeftFootString);
 
         rifleAimingLayer = anim.GetLayerIndex("RifleAiming");
     }
@@ -90,7 +93,19 @@ public class AnimatorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetInteger(numOfLegsHash, limbsManager.numberOfLegs);
+        int numOfLegs = limbsManager.numberOfLegs;
+        anim.SetInteger(numOfLegsHash, numOfLegs);
+        if (numOfLegs == 1)
+        {
+            if (limbsManager.currentLeftLeg)
+            {
+                anim.SetBool(isOnLeftFootHash, true);
+            }
+            else
+            {
+                anim.SetBool(isOnLeftFootHash, false);
+            }
+        }
         moveInput = inputHandler.MoveInput;
         anim.SetFloat(fwdSpeedHash, moveInput.y,damping,Time.deltaTime);
         anim.SetFloat(sideSpeedHash,moveInput.x,damping, Time.deltaTime);

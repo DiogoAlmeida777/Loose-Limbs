@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class MeleeArm : Arm
 {
     [SerializeField] private Hitbox hitbox;
+    [SerializeField] private AudioSource attackSound;
     public UnityEvent<string,string> playAttackAnim;
 
     private void OnEnable()
@@ -15,6 +16,7 @@ public class MeleeArm : Arm
     public override void Attack()
     {
         playAttackAnim?.Invoke(stats.attackAnimStateName, stats.animLayerName);
+        attackSound.Play();
     }
 
     public void OnEnableHitbox(string attackSideString)
