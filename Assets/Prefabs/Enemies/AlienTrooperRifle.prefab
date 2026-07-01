@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 2600299510903835086}
   - component: {fileID: 1662527670800908095}
   - component: {fileID: 5233016298476257574}
+  - component: {fileID: -5334689441272760739}
   m_Layer: 8
   m_Name: AlienTrooperRifle
   m_TagString: Untagged
@@ -465,6 +466,33 @@ MonoBehaviour:
   - m_Rig: {fileID: 8512625611417694586}
     m_Active: 1
   m_Effectors: []
+--- !u!54 &-5334689441272760739
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639585578882593324}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 80
+  m_CollisionDetection: 3
 --- !u!1 &1886038850278161355
 GameObject:
   m_ObjectHideFlags: 0
