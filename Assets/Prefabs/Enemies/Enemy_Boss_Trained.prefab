@@ -474,7 +474,7 @@ Transform:
   m_GameObject: {fileID: 6105664056679694149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.111, z: -0.029}
+  m_LocalPosition: {x: 0, y: 1.3, z: -0.029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -784,7 +784,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathDrop
   limbDropPrefabs:
-  - {fileID: 1984982008554711702, guid: 0320d4887ef4b9143a0d93114f663ce9, type: 3}
+  - {fileID: 8514687534352116306, guid: 895def99021a66b47be635517f9e9f63, type: 3}
+  - {fileID: 4796325979684223402, guid: e30a6a9757fba954e8a96767928938de, type: 3}
+  - {fileID: 1388935082839519120, guid: 0bf209904882eef4e854df61ebdd8efe, type: 3}
+  - {fileID: 4578406253483760800, guid: 18bcfcdb759866a4d8ee2c2f479023ee, type: 3}
+  - {fileID: 1103366239532378746, guid: 48e79a32d405b9b4cb2b72f768c50cbb, type: 3}
+  - {fileID: 1103366239532378746, guid: 48e79a32d405b9b4cb2b72f768c50cbb, type: 3}
   dropPoint: {fileID: 2614296446833692448}
   dropSpreadRadius: 1.2
   deathEffectPrefab: {fileID: 0}
