@@ -6440,6 +6440,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 122512599725828179, guid: db4da4a76ff70fb4f997dc065637878d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8689597319084937479, guid: db4da4a76ff70fb4f997dc065637878d, type: 3}
       propertyPath: m_Name
       value: Enemy_Boss_Trained (1)
@@ -6810,6 +6814,10 @@ PrefabInstance:
     - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
       propertyPath: m_Name
       value: Enemy_Melee_Random (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3416520085177613564, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18968,6 +18976,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CyborgTrooper (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6123801372467322561, guid: ebfec8c56f5234c45ad96cca47e6d24e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28951,6 +28963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlienTrooperRifle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1639585578882593324, guid: 28a3a46182faa50418c3d9c925dde2fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3957012742332629269, guid: 28a3a46182faa50418c3d9c925dde2fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.368197
@@ -30676,6 +30692,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1744704699622866769, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
+      propertyPath: deathEffectPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Melee_Random
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416520085177613564, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.0219984
+      objectReference: {fileID: 0}
     - target: {fileID: 46700084173450252, guid: c71d7002ab4d03242aba95686fc6ad34, type: 3}
       propertyPath: 
       value: 
@@ -30756,22 +30788,6 @@ PrefabInstance:
       propertyPath: 'camerasToDisable.Array.data[1]'
       value: 
       objectReference: {fileID: 1453144327}
-    - target: {fileID: 1744704699622866769, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
-      propertyPath: deathEffectPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Melee_Random
-      objectReference: {fileID: 0}
-    - target: {fileID: 2286046810364386904, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3416520085177613564, guid: aeab1c8ef4c553c47ab4cc6e5ec1474b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.0219984
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

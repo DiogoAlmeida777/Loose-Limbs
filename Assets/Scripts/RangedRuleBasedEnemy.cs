@@ -21,6 +21,9 @@ public class RangedRuleBasedEnemy : MonoBehaviour
     [SerializeField] private float shootCooldown = 1.5f;
     [SerializeField] private float aimHeight = 1.2f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource gunshotAudio;
+
     [SerializeField] private LayerMask obstacleLayer;
 
     private NavMeshAgent agent;
@@ -165,6 +168,11 @@ public class RangedRuleBasedEnemy : MonoBehaviour
 
         Vector3 spawnPosition = shootPoint.position + direction.normalized * 0.5f;
         Instantiate(projectilePrefab, spawnPosition, rotation);
+
+        if (gunshotAudio != null)
+        {
+            gunshotAudio.Play();
+        }
 
         shootTimer = shootCooldown;
 
