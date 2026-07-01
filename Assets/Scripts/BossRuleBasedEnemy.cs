@@ -27,6 +27,11 @@ public class BossRuleBasedEnemy : MonoBehaviour
     [SerializeField] private float aimHeight = 1.2f;
     [SerializeField] private LayerMask obstacleLayer;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource rangedAttackAudio;
+    [SerializeField] private AudioSource meleeSwingAudio;
+    [SerializeField] private AudioSource meleeHitAudio;
+
     [Header("AI Mode")]
     [SerializeField] private bool useAutonomousAI = false;
 
@@ -103,7 +108,6 @@ public class BossRuleBasedEnemy : MonoBehaviour
         shootTimer = Mathf.Max(0f, shootTimer - Time.deltaTime);
     }
 
-
     public void ChasePlayer()
     {
         UpdateTimers();
@@ -146,7 +150,6 @@ public class BossRuleBasedEnemy : MonoBehaviour
             agent.acceleration = 8f;
         }
 
-        // IMPORTANT: do not spam SetDestination every frame.
         if (Time.time < nextPathUpdateTime)
         {
             return;
@@ -236,6 +239,8 @@ public class BossRuleBasedEnemy : MonoBehaviour
             animator.SetTrigger("meleeAttack");
         }
 
+        PlayAudio(meleeSwingAudio);
+
         Vector3 attackPosition = meleePoint != null
             ? meleePoint.position
             : transform.position + transform.forward;
@@ -253,6 +258,9 @@ public class BossRuleBasedEnemy : MonoBehaviour
             if (hurtbox != null)
             {
                 hurtbox.OnHit(meleeDamage);
+
+                PlayAudio(meleeHitAudio);
+
                 Debug.Log("Boss melee hit player.");
                 return;
             }
@@ -268,6 +276,12 @@ public class BossRuleBasedEnemy : MonoBehaviour
         if (shootTimer > 0f)
         {
             Debug.Log("Ranged failed: cooldown " + shootTimer);
+            return;
+        }
+
+        if (player == null)
+        {
+            Debug.LogWarning("Ranged failed: player null");
             return;
         }
 
@@ -291,10 +305,19 @@ public class BossRuleBasedEnemy : MonoBehaviour
 
         Vector3 targetPosition = player.position + Vector3.up * aimHeight;
         Vector3 direction = targetPosition - shootPoint.position;
+
+        if (direction.sqrMagnitude <= 0.01f)
+        {
+            Debug.LogWarning("Ranged failed: direction too small");
+            return;
+        }
+
         Quaternion rotation = Quaternion.LookRotation(direction.normalized);
 
         Vector3 spawnPosition = shootPoint.position + direction.normalized * 1.5f;
         Instantiate(projectilePrefab, spawnPosition, rotation);
+
+        PlayAudio(rangedAttackAudio);
 
         if (animator != null)
         {
@@ -340,6 +363,8 @@ public class BossRuleBasedEnemy : MonoBehaviour
 
     private void LookAtPlayer()
     {
+        if (player == null) return;
+
         Vector3 direction = player.position - transform.position;
         direction.y = 0f;
 
@@ -360,8 +385,15 @@ public class BossRuleBasedEnemy : MonoBehaviour
 
         bool isMoving = agent.velocity.magnitude > 0.1f && !agent.isStopped;
 
-        // Only keep this if the boss Animator Controller has a Bool called "IsMoving".
         animator.SetBool("isMoving", isMoving);
+    }
+
+    private void PlayAudio(AudioSource audioSource)
+    {
+        if (audioSource == null) return;
+        if (audioSource.clip == null) return;
+
+        audioSource.PlayOneShot(audioSource.clip);
     }
 
     private void OnDrawGizmosSelected()

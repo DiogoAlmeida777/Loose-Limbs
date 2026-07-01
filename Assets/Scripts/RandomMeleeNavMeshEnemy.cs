@@ -30,6 +30,10 @@ public class RandomMeleeNavMeshEnemy : MonoBehaviour
     [SerializeField] private float damage = 10f;
     [SerializeField] private LayerMask playerLayer;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource closeHitAudio;
+    [SerializeField] private AudioSource attackMissAudio;
+
     private NavMeshAgent agent;
     private float decisionTimer;
     private float attackTimer;
@@ -150,6 +154,11 @@ public class RandomMeleeNavMeshEnemy : MonoBehaviour
 
         attackTimer = attackCooldown;
 
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
+
         Vector3 attackPosition = attackPoint != null
             ? attackPoint.position
             : transform.position + transform.forward;
@@ -167,15 +176,20 @@ public class RandomMeleeNavMeshEnemy : MonoBehaviour
             if (hurtbox != null)
             {
                 hurtbox.OnHit(damage);
+
+                if (closeHitAudio != null && closeHitAudio.clip != null)
+                {
+                    closeHitAudio.PlayOneShot(closeHitAudio.clip);
+                }
+
                 Debug.Log($"{gameObject.name} hit player for {damage} damage.");
                 return;
             }
-
         }
 
-        if (animator != null)
+        if (attackMissAudio != null && attackMissAudio.clip != null)
         {
-            animator.SetTrigger("Attack");
+            attackMissAudio.PlayOneShot(attackMissAudio.clip);
         }
 
         Debug.Log($"{gameObject.name} attacked but hit nothing.");

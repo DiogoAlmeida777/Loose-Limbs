@@ -13,6 +13,9 @@ public class EnemyDeathDrop : MonoBehaviour
     [SerializeField] private GameObject deathEffectPrefab;
     [SerializeField] private Transform deathEffectPoint;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource deathAudio;
+
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private float destroyDelay = 1.5f;
@@ -43,6 +46,8 @@ public class EnemyDeathDrop : MonoBehaviour
         {
             Instantiate(deathEffectPrefab, effectPosition, Quaternion.identity);
         }
+
+        PlayAudio(deathAudio);
 
         if (animator != null)
         {
@@ -128,5 +133,13 @@ public class EnemyDeathDrop : MonoBehaviour
 
             Instantiate(limbPrefab, spawnPosition, randomRotation);
         }
+    }
+
+    private void PlayAudio(AudioSource audioSource)
+    {
+        if (audioSource == null) return;
+        if (audioSource.clip == null) return;
+
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }
