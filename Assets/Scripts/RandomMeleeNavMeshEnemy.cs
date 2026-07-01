@@ -215,7 +215,7 @@ public class RandomMeleeNavMeshEnemy : MonoBehaviour
         animator.SetFloat("fwdSpeed", dt.fwdSpeed());
         animator.SetFloat("sideSpeed", dt.sideSpeed());
 
-        bool isMoving = agent.velocity.magnitude > 0.1f && !agent.isStopped;
-        animator.SetBool("isMoving", isMoving);
+        //bool isMoving = agent.velocity.magnitude > 0.1f && !agent.isStopped;
+        //animator.SetBool("isMoving", isMoving);
     }
 }
