@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 2600299510903835086}
   - component: {fileID: 1662527670800908095}
   - component: {fileID: 5233016298476257574}
+  - component: {fileID: 7459949916188114183}
   m_Layer: 8
   m_Name: AlienTrooperRifle
   m_TagString: Untagged
@@ -399,6 +400,7 @@ MonoBehaviour:
   dropSpreadRadius: 1.2
   deathEffectPrefab: {fileID: 6942547258357867021, guid: 6b7e1c6b8bb6f9148a051d83c3ef84d6, type: 3}
   deathEffectPoint: {fileID: 2749075182123761610}
+  deathAudio: {fileID: 0}
   animator: {fileID: 2600299510903835086}
   destroyDelay: 2
 --- !u!114 &9222064184511431945
@@ -429,7 +431,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 42c9cf61d2607f14e99e295953367c7f, type: 3}
   m_Controller: {fileID: 9100000, guid: 18905f94e1666e84abccf688f76a2478, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -467,6 +469,33 @@ MonoBehaviour:
   - m_Rig: {fileID: 8512625611417694586}
     m_Active: 1
   m_Effectors: []
+--- !u!54 &7459949916188114183
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639585578882593324}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1886038850278161355
 GameObject:
   m_ObjectHideFlags: 0

@@ -5123,7 +5123,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 4356957435922185999}
   fireRate: 1
   currAmmo: 0
-  maxAmmo: 7
+  maxAmmo: 20
   shootPos: {fileID: 7402053888240018144}
   aimPos: {fileID: 0}
   gunshotAudio: {fileID: 7712496602285127125}

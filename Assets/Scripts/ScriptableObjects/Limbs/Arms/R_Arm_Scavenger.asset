@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArmStats
   bodySide: 1
   type: 3
-  health: 1000
-  meleeDamage: 1000
-  attackCooldown: 1
+  health: 150
+  meleeDamage: 100
+  attackCooldown: 2
   canGrab: 0
   attackAnimStateName: Slash
   animLayerName: RightArm

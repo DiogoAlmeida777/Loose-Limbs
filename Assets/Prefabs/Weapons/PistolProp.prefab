@@ -5125,10 +5125,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6963703419089604164, guid: 61874c8ceb5e1024a95429525b404039, type: 3}
   muzzleFlash: {fileID: 0}
   fireRate: 0.5
-  currAmmo: 18
-  maxAmmo: 18
+  currAmmo: 30
+  maxAmmo: 30
   shootPos: {fileID: 4572518116379059794}
   aimPos: {fileID: 0}
+  gunshotAudio: {fileID: 0}
 --- !u!54 &5332566704064380053
 Rigidbody:
   m_ObjectHideFlags: 0

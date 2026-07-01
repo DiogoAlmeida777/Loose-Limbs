@@ -78,6 +78,11 @@ public class RandomMeleeNavMeshEnemy : MonoBehaviour
             decisionTimer = decisionInterval;
         }
 
+        
+    }
+
+    private void LateUpdate()
+    {
         UpdateAnimation();
     }
 

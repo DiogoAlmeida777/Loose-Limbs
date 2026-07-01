@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LegStats
   bodySide: 1
   type: 0
-  health: 50
+  health: 100
   moveSpeed: 2.5
   sprintMultiplier: 0.5
   stamina: 30

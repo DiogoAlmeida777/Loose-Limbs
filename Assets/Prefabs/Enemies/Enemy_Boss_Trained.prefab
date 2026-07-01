@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: 7017770616518079957}
   - component: {fileID: 2176610440838635482}
   - component: {fileID: 3222895977448365007}
+  - component: {fileID: -3787516041481475966}
   m_Layer: 8
   m_Name: Enemy_Boss_Trained
   m_TagString: Untagged
@@ -787,9 +788,9 @@ MonoBehaviour:
   dropPoint: {fileID: 2614296446833692448}
   dropSpreadRadius: 1.2
   deathEffectPrefab: {fileID: 0}
-  deathEffectPoint: {fileID: 0}
+  deathEffectPoint: {fileID: 2614296446833692448}
   deathAudio: {fileID: 7686256550836154436}
-  animator: {fileID: 0}
+  animator: {fileID: 7142435860933610114}
   destroyDelay: 2
 --- !u!114 &7298767563776223975
 MonoBehaviour:
@@ -877,6 +878,33 @@ MonoBehaviour:
   DecisionPeriod: 10
   DecisionStep: 0
   TakeActionsBetweenDecisions: 1
+--- !u!54 &-3787516041481475966
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8689597319084937479}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &7083067184992153160
 PrefabInstance:
   m_ObjectHideFlags: 0

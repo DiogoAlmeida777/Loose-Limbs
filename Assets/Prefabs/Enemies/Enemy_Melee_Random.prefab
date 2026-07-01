@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 1695613617122061955}
   - component: {fileID: 4273479637431098760}
   - component: {fileID: 1958077557024333689}
+  - component: {fileID: 3107877220408173554}
   m_Layer: 8
   m_Name: Enemy_Melee_Random
   m_TagString: Untagged
@@ -490,6 +491,7 @@ MonoBehaviour:
   dropSpreadRadius: 1.2
   deathEffectPrefab: {fileID: 6942547258357867021, guid: 6b7e1c6b8bb6f9148a051d83c3ef84d6, type: 3}
   deathEffectPoint: {fileID: 4244522394487138848}
+  deathAudio: {fileID: 0}
   animator: {fileID: 8516048244321592500}
   destroyDelay: 2
 --- !u!114 &1695613617122061955
@@ -520,7 +522,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: f0a1ccbcad752104484b92f85be3f1f1, type: 3}
   m_Controller: {fileID: 9100000, guid: 806ad89ab8ba57d428a0a5b3d53e3f1e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -542,6 +544,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcf2ea01ce23d541a7892341b607f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeltaTransform
+--- !u!54 &3107877220408173554
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2286046810364386904}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2499625161091926785
 GameObject:
   m_ObjectHideFlags: 0
