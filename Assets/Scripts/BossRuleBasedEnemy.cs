@@ -233,7 +233,7 @@ public class BossRuleBasedEnemy : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("meleeAttack");
         }
 
         Vector3 attackPosition = meleePoint != null
@@ -296,6 +296,11 @@ public class BossRuleBasedEnemy : MonoBehaviour
         Vector3 spawnPosition = shootPoint.position + direction.normalized * 1.5f;
         Instantiate(projectilePrefab, spawnPosition, rotation);
 
+        if (animator != null)
+        {
+            animator.SetTrigger("rangedAttack");
+        }
+
         shootTimer = shootCooldown;
         Debug.Log("Boss shot projectile");
     }
@@ -356,7 +361,7 @@ public class BossRuleBasedEnemy : MonoBehaviour
         bool isMoving = agent.velocity.magnitude > 0.1f && !agent.isStopped;
 
         // Only keep this if the boss Animator Controller has a Bool called "IsMoving".
-        animator.SetBool("IsMoving", isMoving);
+        animator.SetBool("isMoving", isMoving);
     }
 
     private void OnDrawGizmosSelected()
